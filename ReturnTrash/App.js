@@ -1,27 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+//import { StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+
+import Routes from './src/Routes/Routes';
+
+//import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.txt}>Bem-vinde ao +ReturnTrash!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+    <NavigationContainer>
+      <Routes/>
+    </NavigationContainer>
+
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#856192',
-    alignItems: 'center',
-    justifyContent: 'center',
-    //marginBottom: 200,
-  },
-  
-  txt:{
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 30,
-  }
-});
