@@ -1,7 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import VoltarButton from '../../Components/VoltarButton';
+import EntrarButton from '../../Components/EntrarButton';
 
 export default function Login() {
+
+    const entrar = () => {
+        console.log('Entrar clicado')
+        navigation.navigate('HomePage')
+    }
+    
+    const voltar = () => {
+        navigation.navigate('Inicial')
+
+    }
 
     return (
         <>
@@ -12,8 +24,8 @@ export default function Login() {
 
                 <Text style={styles.txt}>Usuário ou e-mail</Text>
                 <Text style={styles.txt}>Senha</Text>
-                <Text style={styles.txt}>ENTRAR</Text>
-
+                <EntrarButton onpress={entrar}/>
+                <VoltarButton onpress={voltar}/>
             </View>
         </>
     );

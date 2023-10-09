@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image} from 'react-native';
 
-export default function Home() {
+export default function HomePage() {
 
     return (
         <>

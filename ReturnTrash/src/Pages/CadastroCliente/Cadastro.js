@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import VoltarButton from '../../Components/VoltarButton';
 
 export default function Cadastro() {
+
+    const voltar = () => {
+        navigation.navigate('Inicial')
+    }
 
     return (
         <>
@@ -15,7 +20,7 @@ export default function Cadastro() {
                 <Text style={styles.titleTxt}>Confirme o e-mail:</Text>
                 <Text style={styles.titleTxt}>Senha:</Text>
                 <Text style={styles.titleTxt}>CADASTRAR</Text>
-                <Text style={styles.titleTxt}>VOLTAR</Text>
+                <VoltarButton onpress={voltar}/>
 
 
             </View>
