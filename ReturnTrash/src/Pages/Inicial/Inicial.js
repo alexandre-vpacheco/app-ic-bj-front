@@ -1,7 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import ButtonLogin from '../../Components/ButtonLogin';
+import ButtonCadastro from '../../Components/ButtonCadastro';
 
-export default function Login() {
+export default function Inicial() {
+
+    const login = () => {
+        console.log('Login clicado')
+    }
+
+    const cadastro = () => {
+        console.log('Cadastro clicado')
+    }
 
     return (
         <>
@@ -9,10 +19,9 @@ export default function Login() {
                 <Image style={styles.logo} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                 }} />
-
-                <Text style={styles.txt}>Usuário ou e-mail</Text>
-                <Text style={styles.txt}>Senha</Text>
-
+                <ButtonLogin onpress={login} />
+                <Text style={styles.txt}>ou</Text>
+                <ButtonCadastro onpress={cadastro}/>
             </View>
         </>
     );
