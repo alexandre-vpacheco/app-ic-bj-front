@@ -6,25 +6,27 @@ const logoImg = require("./assets/logort.jpg");
 
 export default function App() {
   return (
-
-    <View style={styles.container}>
-      <Image source={logoImg} />
-      <Button
-        title="Fazer Login"
-        onPress={() => Window.alert('Simple Button pressed')}
-        style={styles.button}
-      />
-      <Text>ou</Text>
-      <Button
-        title="Cadastre-se"
-        onPress={() => Window.alert('Simple Button pressed')}
-        style={styles.button}
-      />
-    </View>
+      <View style={styles.container}>
+      <Image style={styles.logo} source={{
+          uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
+        }} />
+        <Button
+          title="Fazer Login"
+          onPress={() => Window.alert('Simple Button pressed')}
+          style={styles.button}
+        />
+        <Text style={styles.txt}>ou</Text>
+        <Button
+          title="Cadastre-se"
+          onPress={() => Window.alert('Simple Button pressed')}
+          style={styles.button}
+        />
+      </View>
   );
 }
 
 const styles = StyleSheet.create({
+  
   container: {
     flex: 1,
     backgroundColor: '#856192',
@@ -35,15 +37,16 @@ const styles = StyleSheet.create({
   txt: {
     fontWeight: 'bold',
     fontSize: 18,
-    marginTop: -100
+    color: 'white'
   },
 
   button: {
-
+    
   },
 
   logo: {
-    width: 66,
+    marginTop: -100,
+    width: 250,
     height: 58,
   }
 });
