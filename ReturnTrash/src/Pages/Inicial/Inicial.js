@@ -1,16 +1,16 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import ButtonLogin from '../../Components/ButtonLogin';
 import ButtonCadastro from '../../Components/ButtonCadastro';
 
 export default function Inicial() {
 
     const login = () => {
-        console.log('Login clicado')
+        console.log('Login clicado')     
     }
 
     const cadastro = () => {
-        console.log('Cadastro clicado')
+        console.log('Cadastro clicado') 
     }
 
     return (

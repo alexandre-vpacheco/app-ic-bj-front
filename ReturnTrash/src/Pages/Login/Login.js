@@ -12,6 +12,7 @@ export default function Login() {
 
                 <Text style={styles.txt}>Usuário ou e-mail</Text>
                 <Text style={styles.txt}>Senha</Text>
+                <Text style={styles.txt}>ENTRAR</Text>
 
             </View>
         </>
@@ -29,9 +30,10 @@ const styles = StyleSheet.create({
 
     txt: {
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 22,
         color: 'white',
-        marginTop: 10
+        marginTop: 100,
+        alignItems: 'center'
     },
 
     logo: {

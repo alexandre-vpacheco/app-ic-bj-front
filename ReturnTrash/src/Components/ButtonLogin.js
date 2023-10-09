@@ -17,7 +17,7 @@ export default ButtonLogin
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 230,
+        marginTop: 200,
         backgroundColor: '#F5F6F6',
         borderRadius: 15,
         width: 190,
