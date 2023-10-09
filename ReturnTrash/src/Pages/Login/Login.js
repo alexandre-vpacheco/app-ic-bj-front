@@ -2,8 +2,11 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import VoltarButton from '../../Components/VoltarButton';
 import EntrarButton from '../../Components/EntrarButton';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Login() {
+
+    const navigation = useNavigation();
 
     const entrar = () => {
         console.log('Entrar clicado')
@@ -21,7 +24,6 @@ export default function Login() {
                 <Image style={styles.logo} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                 }} />
-
                 <Text style={styles.txt}>Usuário ou e-mail</Text>
                 <Text style={styles.txt}>Senha</Text>
                 <EntrarButton onpress={entrar}/>

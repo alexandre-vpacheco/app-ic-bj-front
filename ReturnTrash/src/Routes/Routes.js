@@ -51,5 +51,6 @@ export default function Routes() {
                 options={{headerShown: true}}
             />
         </Stack.Navigator>
+        
     )
 };
