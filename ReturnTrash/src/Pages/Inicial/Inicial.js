@@ -1,16 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import ButtonLogin from '../../Components/ButtonLogin';
 import ButtonCadastro from '../../Components/ButtonCadastro';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Inicial() {
 
+    const navigation = useNavigation();
+
     const login = () => {
-        console.log('Login clicado')
+        console.log('Login clicado') 
+        navigation.navigate('Login')    
     }
 
     const cadastro = () => {
         console.log('Cadastro clicado')
+        navigation.navigate('Cadastro')  
     }
 
     return (

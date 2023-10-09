@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 
-export default function Home() {
+export default function Descarte() {
 
     return (
         <>
             <View style={styles.container}>
         
-                <Text style={styles.txt}>BEM VINDO A HOME, FULANO!</Text>
+                <Text style={styles.txt}>PÁGINA DE DESCARTE</Text>
 
             </View>
         </>
