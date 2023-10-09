@@ -1,32 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import React from 'react';
+import ButtonLogin from './src/Pages/Components/ButtonLogin';
+import ButtonCadastro from './src/Pages/Components/ButtonCadastro';
 
 const logoImg = require("./assets/logort.jpg");
 
 export default function App() {
   return (
+    <>
       <View style={styles.container}>
-      <Image style={styles.logo} source={{
+        <Image style={styles.logo} source={{
           uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
         }} />
-        <Button
-          title="Fazer Login"
-          onPress={() => Window.alert('Simple Button pressed')}
-          style={styles.button}
-        />
-        <Text style={styles.txt}>ou</Text>
-        <Button
-          title="Cadastre-se"
-          onPress={() => Window.alert('Simple Button pressed')}
-          style={styles.button}
-        />
-      </View>
+        <ButtonLogin />
+        <Text>ou</Text>
+        <ButtonCadastro />
+      </View>     
+    </>
   );
 }
 
 const styles = StyleSheet.create({
-  
+
   container: {
     flex: 1,
     backgroundColor: '#856192',
@@ -40,13 +36,10 @@ const styles = StyleSheet.create({
     color: 'white'
   },
 
-  button: {
-    
-  },
-
   logo: {
     marginTop: -100,
     width: 250,
     height: 58,
   }
+  
 });
