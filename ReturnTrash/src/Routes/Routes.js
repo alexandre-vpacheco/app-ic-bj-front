@@ -33,22 +33,22 @@ export default function Routes() {
             <Stack.Screen
                 name="HomePage"
                 component={HomePage}
-                options={{headerShown: true}}
+                options={{headerShown: false}}
             />
             <Stack.Screen
                 name="Descarte"
                 component={Descarte}
-                options={{headerShown: true}}
+                options={{headerShown: false}}
             />
             <Stack.Screen
                 name="Pontos"
                 component={Pontos}
-                options={{headerShown: true}}
+                options={{headerShown: false}}
             />
             <Stack.Screen
                 name="Contato"
                 component={Contato}
-                options={{headerShown: true}}
+                options={{headerShown: false}}
             />
         </Stack.Navigator>
         
