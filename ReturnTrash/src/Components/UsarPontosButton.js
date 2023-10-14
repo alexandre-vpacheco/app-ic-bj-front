@@ -18,17 +18,19 @@ export default UsarPontosButton
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 5,
+        marginTop: 10,
         backgroundColor: '#204722',
-        borderRadius: 10,
-        width: 310,
-        height: 40,
-        alignItems: 'center',
+        borderRadius: 45,
+        width: 320,
+        height: 60,
+        alignItems: 'flex-end',
+        padding: 10,
         justifyContent: 'center'
     },
 
     buttonText: {
-        fontSize: 17,
-        color:'white'
+        fontSize: 15,
+        color:'white',
+        fontWeight:'bold',
     }
 })

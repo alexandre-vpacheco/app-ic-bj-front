@@ -9,7 +9,7 @@ import Loading from '../../Components/Loading';
 
 export default function HomePage() {
 
-    const [visible, setVisible] =  useState(false);
+    const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
 
@@ -27,34 +27,34 @@ export default function HomePage() {
 
     const sair = () => {
         setVisible(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setVisible(false);
             navigation.navigate('Inicial')
-        }, 500) 
-        
+        }, 500)
+
     }
 
     return (
         <>
-            <View style={styles.container}>
-                <Image style={styles.logo} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
-                }} />
-                <Text style={styles.txt}>BEM VINDO A HOME, FULANO!</Text>
+            <View style={styles.container1}>
+                <View>
+                    <Image style={styles.logo} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
+                    }} />
+                </View>
+                <Text style={styles.txt}>Bem-vindo(a), Fulano! Como você irá ajudar o planeta hoje?</Text>
+                <DescartarButton onpress={descarte} />
+                <UsarPontosButton onpress={pontos} />
+                <FaleConoscoButton onpress={contato} />
+                <SairButton onpress={sair} />
 
-                <DescartarButton onpress = {descarte}/>
-                <UsarPontosButton onpress = {pontos}/>
-                <FaleConoscoButton onpress = {contato} />
-                <SairButton onpress={sair}/>
-
-                <Loading visible = {visible}/>
+                <Loading visible={visible} />
                 <Text style={styles.saldoTxt}>Saldo disponível: 10 pontos</Text>
-                <div>
+            </View>
+            <View >
                 <Image style={styles.footer} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
                 }} />
-                </div>
-                
             </View>
         </>
     );
@@ -62,7 +62,14 @@ export default function HomePage() {
 
 const styles = StyleSheet.create({
 
-    container: {
+    container1: {
+        flex: 1,
+        backgroundColor: '#856192',
+        alignItems: 'center',
+        //justifyContent: 'center',
+    },
+
+    container2: {
         flex: 1,
         backgroundColor: '#856192',
         alignItems: 'center',
@@ -70,16 +77,22 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        marginBottom: 10,
-        width: 250,
-        height: 58,
+        marginTop: 10,
+        width: 210,
+        height: 50,
+        //aspectRatio: 8.0,
     },
 
     txt: {
+        borderTopWidth: 1.5,
+        borderBottomWidth: 1.5,
+        borderTopColor: '#8F7975',
+        borderBottomColor: '#8F7975',
+        padding: 20,
         fontWeight: 'bold',
-        fontSize: 25,
+        fontSize: 19,
         color: 'white',
-        marginTop: 20,
+        marginTop: 15,
         alignItems: 'center'
     },
 
@@ -93,16 +106,18 @@ const styles = StyleSheet.create({
 
     saldoTxt: {
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 18,
         color: 'white',
-        marginTop: 200,
+        marginTop: 100,
         fontWeight: 'bold'
     },
 
     footer: {
-        marginBottom: -450,
-        width: 350,
-        height: 100,
+        flex: 0.5,
+        //marginBottom: 10,
+        width: undefined,
+        height: undefined,
+        aspectRatio: 3.5,
     }
 
 });

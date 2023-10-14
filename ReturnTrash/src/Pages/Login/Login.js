@@ -51,7 +51,7 @@ export default function Login() {
                 uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
             }} />
             <Loading visible={visible} />
-            <div style={styles.container2}>
+            <View style={styles.container2}>
                 <TextInput
                     style={styles.input}
                     placeholder="E-mail"
@@ -64,11 +64,12 @@ export default function Login() {
                     onChangeText={setSenha}
                     value={senha}
                 />
-            </div>
-            <div style={styles.container3}>
+            </View>
+            
+            <View style={styles.container3}>
                 <EntrarButton onpress={entrar} />
                 <VoltarButton onpress={voltar} />
-            </div>
+            </View>
         </View>
 
 
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
 
     container2: {
         marginTop: 150,
-        marginLeft: 35,
+        //marginLeft: 8,
         flex: 1,
         backgroundColor: '#856192',
         alignItems: 'center',
