@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import VoltarButton from '../../Components/VoltarButton';
 import CadastrarButton from '../../Components/CadastrarButton';
 import { useNavigation } from '@react-navigation/native';
+import Loading from '../../Components/Loading';
 
 export default function Cadastro() {
+
+    const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
 
     const cadastrar = () => {
-        navigation.navigate('Login')
+        setVisible(true);
+        setTimeout(()=>{
+            setVisible(false);
+            navigation.navigate('Login')
+        }, 500)  
     }
 
     const voltar = () => {
-        navigation.navigate('Inicial')
+        setVisible(true);
+        setTimeout(()=>{
+            setVisible(false);
+            navigation.navigate('Inicial')
+        }, 500)
+        
     }
 
     return (
@@ -27,6 +39,8 @@ export default function Cadastro() {
                 <Text style={styles.titleTxt}>E-mail:</Text>
                 <Text style={styles.titleTxt}>Confirme o e-mail:</Text>
                 <Text style={styles.titleTxt}>Senha:</Text>
+                
+                <Loading visible={visible}/>
                 <CadastrarButton onpress={cadastrar}/>
                 <VoltarButton onpress={voltar}/>
 
