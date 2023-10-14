@@ -13,22 +13,27 @@ export default function Contato() {
     const voltar = () => {
         console.log('Voltar clicado')
         setVisible(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setVisible(false);
-            navigation.navigate('HomePage')  
+            navigation.navigate('HomePage')
             console.log('Voltamos para a HomePage')
         }, 500)
-        
+
     }
 
     return (
         <>
             <View style={styles.container}>
-        
+
                 <Text style={styles.txt}>PÁGINA DE CONTATO</Text>
-                <Loading visible = {visible}/>
-                <VoltarButton onpress={voltar}/>
+                <Loading visible={visible} />
+                <VoltarButton onpress={voltar} />
             </View>
+            <div >
+                <Image style={styles.footer} source={{
+                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
+                }} />
+            </div>
         </>
     );
 }
@@ -47,6 +52,14 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: 'white',
         marginTop: 20
+    },
+
+    footer: {
+        flex: 0.5,
+        //marginBottom: 10,
+        width: undefined,
+        height: undefined,
+        aspectRatio: 3.5
     },
 
 });

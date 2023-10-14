@@ -29,6 +29,11 @@ export default function Pontos() {
                 <Loading visible = {visible}/>
                 <VoltarButton onpress={voltar}/>
             </View>
+            <div >
+                <Image style={styles.footer} source={{
+                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
+                }} />
+            </div>
         </>
     );
 }
@@ -47,6 +52,14 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: 'white',
         marginTop: 20
+    },
+
+    footer: {
+        flex: 0.5,
+        //marginBottom: 10,
+        width: undefined,
+        height: undefined,
+        aspectRatio: 3.5
     },
 
 });

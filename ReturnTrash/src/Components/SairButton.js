@@ -18,16 +18,17 @@ export default SairButton
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 10,
+        marginTop: 15,
         backgroundColor: '#F5F6F6',
         borderRadius: 15,
-        width: 190,
+        width: 170,
         height: 40,
         alignItems: 'center',
         justifyContent: 'center'
     },
 
     buttonText: {
-        fontSize: 17
+        fontSize: 17,
+        fontWeight:'bold',
     }
 })
