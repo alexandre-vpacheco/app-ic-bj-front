@@ -14,15 +14,28 @@ export default function HomePage() {
     const navigation = useNavigation();
 
     const descarte = () => {
-        navigation.navigate('Descarte')
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('Descarte')
+        }, 500) 
     }
 
     const pontos = () => {
-        navigation.navigate('Pontos')
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('Pontos')
+        }, 500) 
+        
     }
 
     const contato = () => {
-        navigation.navigate('Contato')
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('Contato')
+        }, 500)   
     }
 
     const sair = () => {
@@ -31,7 +44,6 @@ export default function HomePage() {
             setVisible(false);
             navigation.navigate('Inicial')
         }, 500)
-
     }
 
     return (
@@ -43,13 +55,14 @@ export default function HomePage() {
                     }} />
                 </View>
                 <Text style={styles.txt}>Bem-vindo(a), Fulano! Como você irá ajudar o planeta hoje?</Text>
+                <Text style={styles.saldoTxt}>Saldo disponível: 10 Pontos</Text>
                 <DescartarButton onpress={descarte} />
                 <UsarPontosButton onpress={pontos} />
                 <FaleConoscoButton onpress={contato} />
                 <SairButton onpress={sair} />
 
                 <Loading visible={visible} />
-                <Text style={styles.saldoTxt}>Saldo disponível: 10 pontos</Text>
+                
             </View>
             <View >
                 <Image style={styles.footer} source={{
@@ -109,7 +122,9 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: 'white',
         marginTop: 100,
-        fontWeight: 'bold'
+        marginLeft: -110,
+        marginTop: 20,
+        fontWeight: 'bold',
     },
 
     footer: {

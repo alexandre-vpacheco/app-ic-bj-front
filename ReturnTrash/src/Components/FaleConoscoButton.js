@@ -17,10 +17,10 @@ export default FaleConoscoButton
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 10,
+        marginTop: 18,
         backgroundColor: '#204722',
         borderRadius: 45,
-        width: 320,
+        width: 350,
         height: 60,
         alignItems: 'center',
         justifyContent: 'center'

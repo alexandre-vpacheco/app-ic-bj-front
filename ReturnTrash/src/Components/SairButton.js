@@ -18,7 +18,7 @@ export default SairButton
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 15,
+        marginTop: 20,
         backgroundColor: '#F5F6F6',
         borderRadius: 15,
         width: 170,
