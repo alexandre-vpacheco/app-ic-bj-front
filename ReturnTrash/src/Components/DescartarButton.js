@@ -8,7 +8,7 @@ const DescartarButton = ({ onpress }) => {
             onPress={onpress}>
             <View style={styles.button}>
                 <Image style={styles.logoDescarte} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/4f1d2cfde50b794b339a3da60f00f22d30142712/ReturnTrash/assets/logoDescarte.png',
+                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/logoDescarte.png',
                 }} />
 
                 <Text style={styles.buttonText}>Quero descartar!</Text>
