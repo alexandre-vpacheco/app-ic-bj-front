@@ -4,7 +4,7 @@ import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
 import VoltarButtonContato from '../../Components/VoltarButtonContato';
 
-export default function Contato() {
+export default function CpfPage() {
 
     const [visible, setVisible] = useState(false);
 
@@ -15,8 +15,7 @@ export default function Contato() {
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
-            navigation.navigate('HomePage')
-            console.log('Voltamos para a HomePage')
+            navigation.navigate('Descarte')
         }, 500)
 
     }
@@ -24,8 +23,7 @@ export default function Contato() {
     return (
         <>
             <View style={styles.container}>
-
-                <Text style={styles.txt}>PÁGINA DE CONTATO</Text>
+                <Text style={styles.txt}>PÁGINA DE CADASTRO DE CPF</Text>
                 <Loading visible={visible} />
                 <VoltarButtonContato onpress={voltar} />
             </View>

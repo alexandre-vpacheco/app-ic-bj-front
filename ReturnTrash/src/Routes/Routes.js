@@ -8,6 +8,8 @@ import HomePage from '../Pages/HomePage/HomePage.js';
 import Descarte from '../Pages/DescartePage/Descarte.js';
 import Pontos from '../Pages/UsarPontosPage/Pontos.js';
 import Contato from '../Pages/Contato/Contato.js';
+import QrCodePage from '../Pages/QrCodePage/QrCodePage.js';
+import CpfPage from '../Pages/CpfPage/CpfPage.js';
 
 
 const Stack = createNativeStackNavigator();
@@ -48,6 +50,16 @@ export default function Routes() {
             <Stack.Screen
                 name="Contato"
                 component={Contato}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="QrCodePage"
+                component={QrCodePage}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="CpfPage"
+                component={CpfPage}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>

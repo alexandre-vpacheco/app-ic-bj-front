@@ -14,6 +14,22 @@ export default function Descarte() {
 
     const navigation = useNavigation();
 
+    const qrCodePage = () => {
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('QrCodePage')
+        }, 500)
+    }
+
+    const cpfPage = () => {
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('CpfPage')
+        }, 500)
+    }
+
     const menuLateral = () => {
         console.log('Menu lateral clicado')
     }
@@ -63,9 +79,9 @@ export default function Descarte() {
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
                 }} />
                 <Text style={styles.txt1}>Registrar descarte</Text>               
-                <QrCodeButton />
+                <QrCodeButton onpress={qrCodePage} />
                 <Text style={styles.txt2}>Vincule seu CPF</Text>
-                <CpfButton />
+                <CpfButton onpress={cpfPage}/>
                 <Text style={styles.txt3}>Nº de descartes do dia: 7</Text>
                 <View style={styles.buttons}>
                     <VoltarButtonDescarte onpress={voltar} />
@@ -84,6 +100,7 @@ export default function Descarte() {
 const styles = StyleSheet.create({
 
     header: {
+        marginTop: 35,
         flexDirection: 'row',
         alignItems: 'flex-start',
     },
@@ -111,7 +128,7 @@ const styles = StyleSheet.create({
         height: 55,
         //alignItems: 'flex-start',
         //justifyContent: 'center',
-        marginLeft: 13,
+        marginLeft: 28,
         marginBottom: -15,
     },
 

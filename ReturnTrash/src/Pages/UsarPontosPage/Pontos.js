@@ -29,11 +29,11 @@ export default function Pontos() {
                 <Loading visible = {visible}/>
                 <VoltarButtonPontos onpress={voltar}/>
             </View>
-            <div >
+            <View >
                 <Image style={styles.footer} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
                 }} />
-            </div>
+            </View>
         </>
     );
 }
