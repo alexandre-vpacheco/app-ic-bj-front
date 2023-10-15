@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput} from 'react-native';
 import EntrarButton from '../../Components/EntrarButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';

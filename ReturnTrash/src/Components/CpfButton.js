@@ -8,7 +8,7 @@ const CpfButton = ({ onpress }) => {
             onPress={onpress}>
             <View style={styles.button}>
                 <Text style={styles.buttonText}>Vincule seu CPF no caixa</Text>
-                <Image style={styles.logotablet} source={{
+                <Image style={styles.logoTablet} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/397bf886c227f48663d24ad3ba2904125b13df0d/ReturnTrash/assets/tablet.png',
                 }} />
             </View>
@@ -39,9 +39,9 @@ const styles = StyleSheet.create({
         marginRight: 15,
     },
 
-    logotablet: {
+    logoTablet: {
         marginTop: -1,
-        marginRight: -20,
+        marginRight: -10,
         width: 70,
         height: 70,
         borderRadius: 30,
