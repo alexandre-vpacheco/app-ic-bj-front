@@ -7,7 +7,10 @@ const CpfButton = ({ onpress }) => {
         <TouchableOpacity 
             onPress={onpress}>
             <View style={styles.button}>
-                <Text style={styles.buttonText}>QR Code</Text>
+                <Text style={styles.buttonText}>Vincule seu CPF no caixa</Text>
+                <Image style={styles.logotablet} source={{
+                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/397bf886c227f48663d24ad3ba2904125b13df0d/ReturnTrash/assets/tablet.png',
+                }} />
             </View>
         </TouchableOpacity>
     )
@@ -19,33 +22,28 @@ const styles = StyleSheet.create({
 
     button: {
         flexDirection: 'row',
-        marginTop: 50,
+        marginTop: 5,
         backgroundColor: '#204722',
-        borderRadius: 35,
+        borderRadius: 25,
         width: 350,
         height: 100,
-        //alignItems: 'flex-start',
-        //justifyContent: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     buttonText: {
-        fontSize: 15,
+        fontSize: 20,
         color: 'white',
         fontWeight: 'bold',
-        justifyContent: 'center',
-        //marginLeft: -30,
-        alignItems: 'center',
-        marginTop: 20,
-        marginLeft: 15,
+        marginTop: 5,
+        marginRight: 15,
     },
 
-    logoDescarte: {
-        marginTop: -2,
-        width: 65,
-        height: 65,
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        borderWidth: 4,
+    logotablet: {
+        marginTop: -1,
+        marginRight: -20,
+        width: 70,
+        height: 70,
         borderRadius: 30,
         borderColor: '#204722',
     }
