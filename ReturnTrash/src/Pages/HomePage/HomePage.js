@@ -6,6 +6,7 @@ import FaleConoscoButton from '../../Components/FaleConoscoButton';
 import SairButton from '../../Components/SairButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
+import MenuLateral from '../../Components/MenuLateral';
 
 export default function HomePage() {
 
@@ -13,16 +14,33 @@ export default function HomePage() {
 
     const navigation = useNavigation();
 
+    const menuLateral = () => {
+        console.log('Menu lateral clicado')
+    }
+
     const descarte = () => {
-        navigation.navigate('Descarte')
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('Descarte')
+        }, 500) 
     }
 
     const pontos = () => {
-        navigation.navigate('Pontos')
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('Pontos')
+        }, 500) 
+        
     }
 
     const contato = () => {
-        navigation.navigate('Contato')
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('Contato')
+        }, 500)   
     }
 
     const sair = () => {
@@ -31,25 +49,26 @@ export default function HomePage() {
             setVisible(false);
             navigation.navigate('Inicial')
         }, 500)
-
     }
 
     return (
         <>
             <View style={styles.container1}>
-                <View>
+                <View style={styles.header}>
+                    <MenuLateral onpress={menuLateral}/>
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
                 <Text style={styles.txt}>Bem-vindo(a), Fulano! Como você irá ajudar o planeta hoje?</Text>
+                <Text style={styles.saldoTxt}>Saldo disponível: 10 Pontos</Text>
                 <DescartarButton onpress={descarte} />
                 <UsarPontosButton onpress={pontos} />
                 <FaleConoscoButton onpress={contato} />
                 <SairButton onpress={sair} />
 
                 <Loading visible={visible} />
-                <Text style={styles.saldoTxt}>Saldo disponível: 10 pontos</Text>
+                
             </View>
             <View >
                 <Image style={styles.footer} source={{
@@ -61,6 +80,11 @@ export default function HomePage() {
 }
 
 const styles = StyleSheet.create({
+
+    header: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+    },
 
     container1: {
         flex: 1,
@@ -77,9 +101,10 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        marginTop: 10,
+        marginTop: 12,
         width: 210,
         height: 50,
+        //marginLeft:-15,
         //aspectRatio: 8.0,
     },
 
@@ -90,9 +115,10 @@ const styles = StyleSheet.create({
         borderBottomColor: '#8F7975',
         padding: 20,
         fontWeight: 'bold',
-        fontSize: 19,
+        fontSize: 22,
         color: 'white',
         marginTop: 15,
+        //marginLeft: 10,
         alignItems: 'center'
     },
 
@@ -106,10 +132,12 @@ const styles = StyleSheet.create({
 
     saldoTxt: {
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 20,
         color: 'white',
         marginTop: 100,
-        fontWeight: 'bold'
+        marginLeft: -60,
+        marginTop: 20,
+        fontWeight: 'bold',
     },
 
     footer: {

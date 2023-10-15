@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 
 
-const VoltarButton = ({ onpress }) => {
+const VoltarButtonPontos = ({ onpress }) => {
     return (
         <TouchableOpacity style={styles.button}
            onPress={onpress} >
@@ -13,15 +13,15 @@ const VoltarButton = ({ onpress }) => {
     )
 }
 
-export default VoltarButton
+export default VoltarButtonPontos
 
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 10,
+        marginTop: 20,
         backgroundColor: '#F5F6F6',
         borderRadius: 15,
-        width: 190,
+        width: 170,
         height: 40,
         alignItems: 'center',
         justifyContent: 'center'

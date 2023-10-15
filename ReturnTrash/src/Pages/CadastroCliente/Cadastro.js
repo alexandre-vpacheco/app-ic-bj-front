@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
-import VoltarButton from '../../Components/VoltarButton';
 import CadastrarButton from '../../Components/CadastrarButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
+import VoltarButtonCadastro from '../../Components/VoltarButtonCadastro';
 
 export default function Cadastro() {
 
@@ -42,7 +42,7 @@ export default function Cadastro() {
                 
                 <Loading visible={visible}/>
                 <CadastrarButton onpress={cadastrar}/>
-                <VoltarButton onpress={voltar}/>
+                <VoltarButtonCadastro onpress={voltar}/>
 
 
             </View>

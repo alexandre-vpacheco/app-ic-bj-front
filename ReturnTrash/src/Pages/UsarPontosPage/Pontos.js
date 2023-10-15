@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
-import VoltarButton from '../../Components/VoltarButton';
 import { useNavigation } from '@react-navigation/native';
+import VoltarButtonPontos from '../../Components/VoltarButtonPontos';
 
 export default function Pontos() {
 
@@ -27,7 +27,7 @@ export default function Pontos() {
         
                 <Text style={styles.txt}>PÁGINA DE TROCA DE PONTOS</Text>
                 <Loading visible = {visible}/>
-                <VoltarButton onpress={voltar}/>
+                <VoltarButtonPontos onpress={voltar}/>
             </View>
             <div >
                 <Image style={styles.footer} source={{
