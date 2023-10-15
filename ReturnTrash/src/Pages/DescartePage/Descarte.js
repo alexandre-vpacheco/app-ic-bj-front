@@ -62,11 +62,11 @@ export default function Descarte() {
                 <Image style={styles.recLogo} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
                 }} />
-                <Text style={styles.txt}>Registrar descarte:</Text>
+                <Text style={styles.txt1}>Registrar descarte:</Text>
                 <QrCodeButton />
-                <Text style={styles.txt}>Vincule seu CPF:</Text>
+                <Text style={styles.txt2}>Vincule seu CPF:</Text>
                 <CpfButton />
-                <Text style={styles.txt}>Nº de descartes do dia: 7</Text>
+                <Text style={styles.txt3}>Nº de descartes do dia: 7</Text>
                 <View style={styles.buttons}>
                     <VoltarButtonDescarte onpress={voltar} />
                     <SairButtonDescarte onpress={sair} />
@@ -127,6 +127,42 @@ const styles = StyleSheet.create({
         marginBottom: -15,
     },
 
+    txt1: {
+        marginTop: 2,
+        fontWeight: 'bold',
+        fontSize: 19,
+        color: 'white',
+        //alignItems: 'center',
+        justifyContent: 'center',
+        //marginTop: 27,
+        marginLeft: -140,
+        //marginBottom: -15,
+    },
+
+    txt2: {
+        marginTop: 2,
+        fontWeight: 'bold',
+        fontSize: 19,
+        color: 'white',
+        //alignItems: 'center',
+        justifyContent: 'center',
+        //marginTop: 27,
+        marginLeft: -160,
+        //marginBottom: -15,
+    },
+
+    txt3: {
+        marginTop: 2,
+        fontWeight: 'bold',
+        fontSize: 19,
+        color: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+        //marginTop: 27,
+        marginLeft: -120,
+        //marginBottom: -15,
+    },
+
     logo: {
         marginTop: 12,
         width: 210,
@@ -137,8 +173,8 @@ const styles = StyleSheet.create({
 
     recLogo: {
         marginTop: 12,
-        width: 140,
-        height: 140,
+        width: 120,
+        height: 120,
     },
 
     container: {

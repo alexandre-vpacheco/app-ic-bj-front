@@ -18,8 +18,7 @@ export default QrCodeButton
 const styles = StyleSheet.create({
 
     button: {
-        flexDirection: 'row',
-        marginTop: 50,
+        marginTop: 10,
         backgroundColor: '#204722',
         borderRadius: 35,
         width: 350,

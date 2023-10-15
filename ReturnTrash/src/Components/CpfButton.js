@@ -7,7 +7,7 @@ const CpfButton = ({ onpress }) => {
         <TouchableOpacity 
             onPress={onpress}>
             <View style={styles.button}>
-                <Text style={styles.buttonText}>QR Code</Text>
+                <Text style={styles.buttonText}>Vincule seu CPF no caixa</Text>
             </View>
         </TouchableOpacity>
     )
@@ -18,14 +18,13 @@ export default CpfButton
 const styles = StyleSheet.create({
 
     button: {
-        flexDirection: 'row',
-        marginTop: 50,
+        marginTop: 10,
         backgroundColor: '#204722',
         borderRadius: 35,
         width: 350,
         height: 100,
-        //alignItems: 'flex-start',
-        //justifyContent: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     buttonText: {
