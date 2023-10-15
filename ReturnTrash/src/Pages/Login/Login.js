@@ -19,7 +19,7 @@ export default function Login() {
         console.log('Entrar clicado')
         console.log('E-mail digitado:', { email }, 'Senha digitada:', { senha });
 
-        if (email == 'alexandre@email.com' && senha == '123456') {
+        if (email == '' && senha == '') {
             setVisible(true);
             setTimeout(() => {
                 setVisible(false);
