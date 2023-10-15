@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
-import VoltarButton from '../../Components/VoltarButton';
 import { useNavigation } from '@react-navigation/native';
+import VoltarButtonContato from '../../Components/VoltarButtonContato';
 
 export default function Contato() {
 
@@ -27,7 +27,7 @@ export default function Contato() {
 
                 <Text style={styles.txt}>PÁGINA DE CONTATO</Text>
                 <Loading visible={visible} />
-                <VoltarButton onpress={voltar} />
+                <VoltarButtonContato onpress={voltar} />
             </View>
             <div >
                 <Image style={styles.footer} source={{

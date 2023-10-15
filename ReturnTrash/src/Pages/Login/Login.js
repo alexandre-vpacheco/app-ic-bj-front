@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, TextInput, Alert } from 'react-native';
-import VoltarButton from '../../Components/VoltarButton';
 import EntrarButton from '../../Components/EntrarButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
+import VoltarButtonLogin from '../../Components/VoltarButtonLogin';
 
 export default function Login() {
 
@@ -68,7 +68,7 @@ export default function Login() {
             
             <View style={styles.container3}>
                 <EntrarButton onpress={entrar} />
-                <VoltarButton onpress={voltar} />
+                <VoltarButtonLogin onpress={voltar} />
             </View>
         </View>
 
@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
         width: 250,
         height: 58,
     },
+
     input: {
         width: 300,
         height: 50,

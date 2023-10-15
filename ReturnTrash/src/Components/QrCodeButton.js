@@ -2,32 +2,28 @@ import React from "react";
 import { StyleSheet, Text, TouchableOpacity, Image, View } from 'react-native';
 
 
-const FaleConoscoButton = ({ onpress }) => {
+const QrCodeButton = ({ onpress }) => {
     return (
         <TouchableOpacity 
             onPress={onpress}>
             <View style={styles.button}>
-                <Image style={styles.logoDescarte} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8d7912d4ae23ff87c045103da5b31f7692025e30/ReturnTrash/assets/contatoLogo.png',
-                }} />
-
-                <Text style={styles.buttonText}>Fale conosco!</Text>
+                <Text style={styles.buttonText}>QR Code</Text>
             </View>
         </TouchableOpacity>
     )
 }
 
-export default FaleConoscoButton
+export default QrCodeButton
 
 const styles = StyleSheet.create({
 
     button: {
         flexDirection: 'row',
-        marginTop: 40,
+        marginTop: 50,
         backgroundColor: '#204722',
-        borderRadius: 45,
+        borderRadius: 35,
         width: 350,
-        height: 60,
+        height: 100,
         //alignItems: 'flex-start',
         //justifyContent: 'center'
     },

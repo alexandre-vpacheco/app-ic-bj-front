@@ -6,12 +6,17 @@ import FaleConoscoButton from '../../Components/FaleConoscoButton';
 import SairButton from '../../Components/SairButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
+import MenuLateral from '../../Components/MenuLateral';
 
 export default function HomePage() {
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
+
+    const menuLateral = () => {
+        console.log('Menu lateral clicado')
+    }
 
     const descarte = () => {
         setVisible(true);
@@ -49,7 +54,8 @@ export default function HomePage() {
     return (
         <>
             <View style={styles.container1}>
-                <View>
+                <View style={styles.header}>
+                    <MenuLateral onpress={menuLateral}/>
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
@@ -75,6 +81,11 @@ export default function HomePage() {
 
 const styles = StyleSheet.create({
 
+    header: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+    },
+
     container1: {
         flex: 1,
         backgroundColor: '#856192',
@@ -90,9 +101,10 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        marginTop: 10,
+        marginTop: 12,
         width: 210,
         height: 50,
+        //marginLeft:-15,
         //aspectRatio: 8.0,
     },
 
@@ -103,9 +115,10 @@ const styles = StyleSheet.create({
         borderBottomColor: '#8F7975',
         padding: 20,
         fontWeight: 'bold',
-        fontSize: 19,
+        fontSize: 22,
         color: 'white',
         marginTop: 15,
+        //marginLeft: 10,
         alignItems: 'center'
     },
 
@@ -119,10 +132,10 @@ const styles = StyleSheet.create({
 
     saldoTxt: {
         fontWeight: 'bold',
-        fontSize: 18,
+        fontSize: 20,
         color: 'white',
         marginTop: 100,
-        marginLeft: -110,
+        marginLeft: -60,
         marginTop: 20,
         fontWeight: 'bold',
     },

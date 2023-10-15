@@ -10,7 +10,6 @@ const DescartarButton = ({ onpress }) => {
                 <Image style={styles.logoDescarte} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
                 }} />
-
                 <Text style={styles.buttonText}>Quero descartar!</Text>
             </View>
         </TouchableOpacity>

@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 
 
-const SairButton = ({ onpress }) => {
+const SairButtonDescarte = ({ onpress }) => {
     return (
         <TouchableOpacity style={styles.button}
            onPress={onpress} >
@@ -13,22 +13,22 @@ const SairButton = ({ onpress }) => {
     )
 }
 
-export default SairButton
+export default SairButtonDescarte
 
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 55,
         backgroundColor: '#F5F6F6',
         borderRadius: 15,
-        width: 170,
+        width: 150,
         height: 40,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginLeft:30,
     },
 
     buttonText: {
         fontSize: 17,
-        //fontWeight:'bold',
+        
     }
 })
