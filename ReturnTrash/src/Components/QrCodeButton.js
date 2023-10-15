@@ -8,6 +8,9 @@ const QrCodeButton = ({ onpress }) => {
             onPress={onpress}>
             <View style={styles.button}>
                 <Text style={styles.buttonText}>QR Code</Text>
+                <Image style={styles.logoQrCode} source={{
+                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/4d85b3700787e805112e75e800658e7954cfddd9/ReturnTrash/assets/qrCode.png',
+                }} />
             </View>
         </TouchableOpacity>
     )
@@ -18,33 +21,31 @@ export default QrCodeButton
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 10,
+        flexDirection: 'row',
+        marginTop: 5,
         backgroundColor: '#204722',
-        borderRadius: 35,
+        borderRadius: 25,
         width: 350,
         height: 100,
-        //alignItems: 'flex-start',
-        //justifyContent: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     buttonText: {
-        fontSize: 15,
+        fontSize: 20,
         color: 'white',
         fontWeight: 'bold',
-        justifyContent: 'center',
-        //marginLeft: -30,
-        alignItems: 'center',
-        marginTop: 20,
-        marginLeft: 15,
+        marginRight: 70,
+        marginLeft: 50,
+        marginTop: 5,
     },
 
-    logoDescarte: {
-        marginTop: -2,
-        width: 65,
-        height: 65,
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        borderWidth: 4,
+    logoQrCode: {
+        marginTop: -1,
+        marginLeft: 20,
+        marginRight: -35,
+        width: 70,
+        height: 70,
         borderRadius: 30,
         borderColor: '#204722',
     }

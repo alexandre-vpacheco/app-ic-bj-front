@@ -62,9 +62,9 @@ export default function Descarte() {
                 <Image style={styles.recLogo} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
                 }} />
-                <Text style={styles.txt1}>Registrar descarte:</Text>
+                <Text style={styles.txt1}>Registrar descarte</Text>               
                 <QrCodeButton />
-                <Text style={styles.txt2}>Vincule seu CPF:</Text>
+                <Text style={styles.txt2}>Vincule seu CPF</Text>
                 <CpfButton />
                 <Text style={styles.txt3}>Nº de descartes do dia: 7</Text>
                 <View style={styles.buttons}>
@@ -128,38 +128,38 @@ const styles = StyleSheet.create({
     },
 
     txt1: {
-        marginTop: 2,
+        marginTop: 5,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         //alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -140,
+        marginLeft: -170,
         //marginBottom: -15,
     },
 
     txt2: {
-        marginTop: 2,
+        marginTop: 5,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         //alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -160,
+        marginLeft: -190,
         //marginBottom: -15,
     },
 
     txt3: {
-        marginTop: 2,
+        marginTop: 15,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -120,
+        marginLeft: -110,
         //marginBottom: -15,
     },
 
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
     },
 
     buttons: {
-        marginTop: 50,
+        marginTop: 35,
         flexDirection: 'row',
         justifyContent: 'center',
         //alignItems: 'space-evenly',
