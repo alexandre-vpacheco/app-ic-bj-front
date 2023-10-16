@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
 
     button: {
         flexDirection: 'row',
-        marginTop: 40,
+        marginTop: 20,
         backgroundColor: '#204722',
         borderRadius: 45,
-        width: 350,
+        width: 380,
         height: 60,
         //alignItems: 'flex-start',
         //justifyContent: 'center'
