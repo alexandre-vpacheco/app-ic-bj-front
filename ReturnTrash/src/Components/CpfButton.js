@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
 
     button: {
         flexDirection: 'row',
-        marginTop: 5,
+        marginTop: 10,
         backgroundColor: '#204722',
         borderRadius: 25,
         width: 350,
-        height: 100,
+        height: 80,
         alignItems: 'center',
         justifyContent: 'center'
     },

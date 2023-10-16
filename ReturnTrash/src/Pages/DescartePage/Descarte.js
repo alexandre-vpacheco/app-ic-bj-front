@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
-import MenuLateral from '../../Components/MenuLateral';
 import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
 import SairButtonDescarte from '../../Components/SairButtonDescarte';
 import QrCodeButton from '../../Components/QrCodeButton';
 import CpfButton from '../../Components/CpfButton';
+import MenuButton from '../../Components/MenuButton';
 
 export default function Descarte() {
 
@@ -59,12 +59,11 @@ export default function Descarte() {
             <View style={styles.container}>
                 <Loading visible={visible} />
                 <View style={styles.header}>
-                    <MenuLateral onpress={menuLateral} />
+                    <MenuButton onpress={menuLateral} />
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
-
                 <View >
                     <Text style={styles.txtBarra1}>                        </Text>
                     <View style={styles.header2}>
@@ -75,24 +74,27 @@ export default function Descarte() {
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
                 </View>
-                <Image style={styles.recLogo} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
-                }} />
-                <Text style={styles.txt1}>Registrar descarte</Text>               
+                <Text style={styles.txt1}>Registrar descarte</Text>
                 <QrCodeButton onpress={qrCodePage} />
-                <Text style={styles.txt2}>Vincule seu CPF</Text>
-                <CpfButton onpress={cpfPage}/>
-                <Text style={styles.txt3}>Nº de descartes do dia: 7</Text>
+                <Text style={styles.txt2}>Vincular CPF</Text>
+                <CpfButton onpress={cpfPage} />
+                <View style={styles.header2}>
+                    <Image style={styles.recLogo} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
+                    }} />
+                    <Text style={styles.txt3}>Nº de descartes do dia: 5</Text>
+                </View>
                 <View style={styles.buttons}>
                     <VoltarButtonDescarte onpress={voltar} />
                     <SairButtonDescarte onpress={sair} />
                 </View>
+                <View >
+                    <Image style={styles.footer} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
+                    }} />
+                </View>
             </View>
-            <View >
-                <Image style={styles.footer} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
-                }} />
-            </View>
+
         </>
     );
 }
@@ -145,38 +147,38 @@ const styles = StyleSheet.create({
     },
 
     txt1: {
-        marginTop: 5,
+        marginTop: 15,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         //alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -170,
+        marginLeft: -150,
         //marginBottom: -15,
     },
 
     txt2: {
-        marginTop: 5,
+        marginTop: 20,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         //alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -190,
+        marginLeft: -200,
         //marginBottom: -15,
     },
 
     txt3: {
-        marginTop: 15,
+        marginTop: 55,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -110,
+        marginLeft: 5,
         //marginBottom: -15,
     },
 
@@ -189,9 +191,10 @@ const styles = StyleSheet.create({
     },
 
     recLogo: {
-        marginTop: 12,
-        width: 120,
-        height: 120,
+        marginTop: 18,
+        marginLeft: -8,
+        width: 100,
+        height: 100,
     },
 
     container: {
@@ -202,18 +205,18 @@ const styles = StyleSheet.create({
     },
 
     buttons: {
-        marginTop: 35,
+        marginTop: 25,
         flexDirection: 'row',
         justifyContent: 'center',
         //alignItems: 'space-evenly',
     },
 
     footer: {
-        flex: 0.5,
-        //marginBottom: 10,
-        width: undefined,
-        height: undefined,
-        aspectRatio: 3.5
+        flex: 0.41,
+        marginTop: 15,
+        marginBottom: 10,
+        width: 450,
+        height: 80,
     },
 
 });
