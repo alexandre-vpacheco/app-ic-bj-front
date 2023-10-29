@@ -39,7 +39,7 @@ export default function Descarte() {
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
-            navigation.navigate('HomePage')
+            navigation.navigate('HomePage');
             console.log('Voltamos para a HomePage')
         }, 500)
     }

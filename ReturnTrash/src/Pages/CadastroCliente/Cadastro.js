@@ -1,49 +1,132 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert, TextInput, Button } from 'react-native';
 import CadastrarButton from '../../Components/CadastrarButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
+import VoltarButtonLogin from '../../Components/VoltarButtonLogin';
 import VoltarButtonCadastro from '../../Components/VoltarButtonCadastro';
+import fetch from 'node-fetch';
 
 export default function Cadastro() {
+
+    const [nome, setNome] = useState('');
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [confirmarEmail, setConfirmarEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
 
-    const cadastrar = () => {
-        setVisible(true);
-        setTimeout(()=>{
-            setVisible(false);
-            navigation.navigate('Login')
-        }, 500)  
-    }
+    const handleCadastro = async () => {
 
-    const voltar = () => {
+        if (nome == '' || username == '' || email == '' || password == '') {
+            Alert.alert('Aviso', 'Todos os campos devem estar preenchidos!');
+            return;
+
+        } else {
+
+            if (email == !confirmarEmail) {
+                Alert.alert('Os e-mails preenchidos devem ser iguais!');
+                return;
+            } else {
+
+                const url = "http://localhost:5000/api/auth/register";
+
+                const dadosUsuario = {
+                    nameid: nome,
+                    username: username,
+                    emails: email,
+                    password: password,
+                };
+    
+                try {
+
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(dadosUsuario),
+                    });
+    
+                    if (!response.ok) {
+                        Alert.alert('Erro na requisição:', response.status);
+                    } else {
+                        if (response.ok) {
+                            const data = await response.json();
+                            alert('Cadastro bem-sucedido!', data);
+                            setVisible(true);
+                            setTimeout(() => {
+                                setVisible(false);
+                                navigation.navigate('Login');
+                            }, 500)
+                        } else {
+                            Alert.alert('Cadastro falhou!', error);
+                            return;
+                        }
+                    }
+                } catch (error) {
+                    console.log('Erro na requisição de cadastro:', error);
+                    Alert.alert('Erro na requisição de cadastro:', error);
+                }
+
+            }
+        }
+    };
+
+    const handleVoltar = () => {
         setVisible(true);
-        setTimeout(()=>{
+        setTimeout(() => {
             setVisible(false);
-            navigation.navigate('Inicial')
+            navigation.navigate('Inicial')  
         }, 500)
-        
     }
 
     return (
         <>
+            <Loading visible={visible} />
             <View style={styles.container}>
-        
-                <Text style={styles.titleTxt}>PÁGINA DE CADASTRO DE CLIENTE</Text>
+                <View style={styles.body}>
 
-                <Text style={styles.titleTxt}>Nome:</Text>
-                <Text style={styles.titleTxt}>Sobrenome:</Text>
-                <Text style={styles.titleTxt}>E-mail:</Text>
-                <Text style={styles.titleTxt}>Confirme o e-mail:</Text>
-                <Text style={styles.titleTxt}>Senha:</Text>
-                
-                <Loading visible={visible}/>
-                <CadastrarButton onpress={cadastrar}/>
-                <VoltarButtonCadastro onpress={voltar}/>
+                    <TextInput
+                        placeholder='Nome'
+                        style={styles.input}
+                        onChangeText={setNome}
+                    />
 
+                    <TextInput
+                        placeholder='Username'
+                        style={styles.input}
+                        onChangeText={setUsername}
+                    />
+
+                    <TextInput
+                        placeholder='E-mail'
+                        style={styles.input}
+                        onChangeText={setEmail}
+                        keyboardType="email-address"
+                    />
+
+                    <TextInput
+                        placeholder='Confirmar E-mail:'
+                        style={styles.input}
+                        onChangeText={setConfirmarEmail}
+                        keyboardType="email-address"
+                    />
+
+                    <TextInput
+                        placeholder='Senha:'
+                        style={styles.input}
+                        onChangeText={setPassword}
+                        secureTextEntry
+                    />
+                    <View style={styles.buttonsBox}>
+                        <CadastrarButton onpress={handleCadastro} />
+                        <VoltarButtonCadastro onpress={handleVoltar} />
+                    </View>
+                </View>
 
             </View>
         </>
@@ -55,22 +138,36 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#856192',
-        alignItems: 'center',
-        //justifyContent: 'center',
+        padding: 20,
     },
 
-    titleTxt: {
-        fontWeight: 'bold',
-        fontSize: 25,
+    body: {
+        marginTop: 90
+    },
+
+    input: {
+        height: 70,
+        borderWidth: 0.5,
+        borderColor: 'white',
         color: 'white',
+        marginBottom: 10,
+        padding: 10,
+        borderRadius: 20
+    },
+
+    buttonsBox: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
         marginTop: 20
     },
 
     bodyTxt: {
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 18,
         color: 'white',
-        marginTop: 100,
+        marginTop: 10,
+        marginBottom: 5,
         alignItems: 'center'
     }
 
