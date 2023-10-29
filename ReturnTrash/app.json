@@ -1,11 +1,27 @@
 {
   "expo": {
+    "extra": {
+      "secureDomain": [
+        "http://localhost:5000/api/auth/login",
+        "http://localhost:5000/api/auth/register",
+        "http://192.168.1.5:5000/api/auth/login",
+        "http://192.168.1.5:5000/api/auth/register",
+        "exp://192.168.1.5:8081"
+      ],
+      "eas": {
+        "projectId": "793aad22-e54e-4488-85d8-5bc982b6e576"
+      }
+    },
     "name": "ReturnTrash",
     "slug": "ReturnTrash",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -18,13 +34,39 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
+      "config": {
+        "cleartext": {
+          "includes": [
+            "http://localhost:5000/api/auth/login",
+            "http://localhost:5000/api/auth/register",
+            "http://192.168.1.5:5000/api/auth/login",
+            "http://192.168.1.5:5000/api/auth/register",
+            "exp://192.168.1.5:8081",
+            "localhost:5000/api/auth/login",
+            "localhost:5000/api/auth/register",
+            "192.168.1.5:5000/api/auth/login",
+            "92.168.1.5:5000/api/auth/register",
+            "192.168.1.5:8081"
+          ]
+        },
+        "permissions": [
+          "INTERNET"
+        ],
+        "package": "returntrash",
+        "versionCode": 2,
+        "supportsTablet": true,
+        "cleartextTraffic": {
+          "permitted": true
+        },
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/adaptive-icon.png",
+          "backgroundColor": "#ffffff"
+        }
+      },
+      "web": {
+        "favicon": "./assets/favicon.png"
+      },
+      "package": "com.alexandrevpacheco.ReturnTrash"
     }
   }
 }
