@@ -61,7 +61,9 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20,
         color: 'white',
-        marginTop: 10
+        marginTop: 10,
+        opacity: 0.8,
+        marginRight: 5
     },
 
     logo: {

@@ -21,58 +21,49 @@ export default function Cadastro() {
 
     const handleCadastro = async () => {
 
-        if (nome == '' || username == '' || email == '' || password == '') {
+        if (nome === '' || username === '' || email === '' || password === '') {
             Alert.alert('Aviso', 'Todos os campos devem estar preenchidos!');
             return;
+        }
 
-        } else {
+        if (email !== confirmarEmail) {
+            Alert.alert('Os e-mails preenchidos devem ser iguais!');
+            return;
+        }
 
-            if (email == !confirmarEmail) {
-                Alert.alert('Os e-mails preenchidos devem ser iguais!');
-                return;
+        const url = "https://app-ic-bj-back-production.up.railway.app/api/auth/register";
+
+        const dadosUsuario = {
+            nameid: nome,
+            username: username,
+            emails: email,
+            password: password,
+        };
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dadosUsuario),
+            });
+
+            if (!response.ok) {
+                const errorMessage = await response.text();
+                Alert.alert('Erro na requisição:', errorMessage);
             } else {
-
-                const url = "http://localhost:5000/api/auth/register";
-
-                const dadosUsuario = {
-                    nameid: nome,
-                    username: username,
-                    emails: email,
-                    password: password,
-                };
-    
-                try {
-
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(dadosUsuario),
-                    });
-    
-                    if (!response.ok) {
-                        Alert.alert('Erro na requisição:', response.status);
-                    } else {
-                        if (response.ok) {
-                            const data = await response.json();
-                            alert('Cadastro bem-sucedido!', data);
-                            setVisible(true);
-                            setTimeout(() => {
-                                setVisible(false);
-                                navigation.navigate('Login');
-                            }, 500)
-                        } else {
-                            Alert.alert('Cadastro falhou!', error);
-                            return;
-                        }
-                    }
-                } catch (error) {
-                    console.log('Erro na requisição de cadastro:', error);
-                    Alert.alert('Erro na requisição de cadastro:', error);
-                }
-
+                const data = await response.json();
+                alert('Cadastro bem-sucedido!', data);
+                setVisible(true);
+                setTimeout(() => {
+                    setVisible(false);
+                    navigation.navigate('Login');
+                }, 500);
             }
+        } catch (error) {
+            console.log('Erro na requisição de cadastro:', error);
+            Alert.alert('Erro na requisição de cadastro:', error.message);
         }
     };
 
@@ -80,7 +71,7 @@ export default function Cadastro() {
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
-            navigation.navigate('Inicial')  
+            navigation.navigate('Inicial')
         }, 500)
     }
 
@@ -142,17 +133,18 @@ const styles = StyleSheet.create({
     },
 
     body: {
-        marginTop: 90
+        marginTop: 130
     },
 
     input: {
-        height: 70,
+        height: 60,
+        width: 'auto',
         borderWidth: 0.5,
         borderColor: 'white',
         color: 'white',
         marginBottom: 10,
         padding: 10,
-        borderRadius: 20
+        borderRadius: 30
     },
 
     buttonsBox: {

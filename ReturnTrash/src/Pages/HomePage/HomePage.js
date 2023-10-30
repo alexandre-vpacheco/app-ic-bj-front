@@ -8,10 +8,13 @@ import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
 import MenuButton from '../../Components/MenuButton';
 import MenuButtonFechar from '../../Components/MenuButtonFechar';
+import { useUser } from '../../Context/UserContext';
 
-export default function HomePage({ route }) {
+export default function HomePage() {
 
-    const {nome} = route.params;
+    const { user } = useUser();
+
+    //const {nome} = route.params;
 
     const [visible, setVisible] = useState(false);
 
@@ -84,7 +87,7 @@ export default function HomePage({ route }) {
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
-                <Text style={styles.txt}>Bem-vindo(a), {nome}! Como você irá ajudar o planeta hoje?</Text>
+                <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
                 <Text style={styles.saldoTxt}>Saldo disponível: 10 Pontos</Text>
                 <DescartarButton onpress={descarte} />
                 <UsarPontosButton onpress={pontos} />
