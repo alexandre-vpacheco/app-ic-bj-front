@@ -22,17 +22,12 @@ const MenuButton = () => {
         setModalVisible(true)
     }
 
-    // const handleHome = () => {
-    //     navigation.navigate('HomePage');
-    //     setModalVisible(false);
-    // }
-
-    const handlePontosColeta = () => {
+    const handleHome = () => {
         setModalVisible(false);
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
-            navigation.navigate('PontosColeta')
+            navigation.navigate('HomePage');
         }, 500)
     }
 
@@ -64,7 +59,6 @@ const MenuButton = () => {
     }
 
     const handleSair = () => {
-        setModalVisible(false);
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
@@ -80,17 +74,11 @@ const MenuButton = () => {
                         <ModalButton onpress={modalClose} />
                         <Text style={styles.modalHeaderTxt}>Menu</Text>
                     </View>
-                    {/* <TouchableOpacity
+                    <TouchableOpacity
                         style={styles.modalButton}
                         onPress={handleHome}
                     >
                         <Text style={styles.modalText}>Home</Text>
-                    </TouchableOpacity> */}
-                    <TouchableOpacity
-                        style={styles.modalButton}
-                        onPress={handlePontosColeta}
-                    >
-                        <Text style={styles.modalText}>Aonde encontrar nossos pontos de coleta?</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
@@ -180,12 +168,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#204722',
         color: 'white',
         borderRadius: 30,
-        height: 70,
-        padding: 10,
+        height: 62,
+        padding: 15,
     },
 
     modalText: {
-        fontSize: 13,
+        fontSize: 15,
         color: 'white'
     },
 

@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
         marginTop: 40,
         backgroundColor: '#204722',
         borderRadius: 45,
-        width: 380,
-        height: 60,
+        width: 350,
+        height: 70,
         //alignItems: 'flex-start',
         //justifyContent: 'center'
     },
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
 
     logoDescarte: {
-        marginTop: -2,
+        marginTop: 2,
         width: 65,
         height: 65,
         alignItems: 'flex-start',

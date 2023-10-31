@@ -32,6 +32,7 @@ export default function Cadastro() {
         }
 
         const url = "https://app-ic-bj-back-production.up.railway.app/api/auth/register";
+        //const url = "localhost:5000/api/auth/register";
 
         const dadosUsuario = {
             nameid: nome,
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
     input: {
         height: 60,
         width: 'auto',
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderColor: 'white',
         color: 'white',
         marginBottom: 10,

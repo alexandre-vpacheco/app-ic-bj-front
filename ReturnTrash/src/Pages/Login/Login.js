@@ -12,7 +12,7 @@ export default function Login() {
     const { login } = useUser();
 
     const [username, setUsername] = useState('');
-    
+
     const [password, setPassword] = useState('');
 
     const [visible, setVisible] = useState(false);
@@ -21,13 +21,13 @@ export default function Login() {
 
     //const [nome, setNome] = useState('');
 
-    const entrar = async () => {
-
-        //navigation.navigate('HomePage');
+    const entrar = () => {
+       //navigation.navigate('HomePage')
 
         if (username == '' || password == '') {
             Alert.alert('Aviso', 'Os campos não podem estar vazios!')
         } else {
+            
             login(username, password);
         }
     }
@@ -54,13 +54,13 @@ export default function Login() {
                 <TextInput
                     style={styles.input}
                     placeholder="Username"
-                    onChange={(e) => setUsername(e.target.value)}
+                    onChangeText={(text) => setUsername(text)}
                     value={username}
                 />
                 <TextInput
                     style={styles.input}
                     placeholder="Senha"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChangeText={(text) => setPassword(text)}
                     value={password}
                     secureTextEntry
                 />
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         width: 320,
         height: 50,
         margin: 12,
-        borderWidth: 0.5,
+        borderWidth: 1,
         padding: 10,
         borderRadius: 30,
         alignItems: 'center',

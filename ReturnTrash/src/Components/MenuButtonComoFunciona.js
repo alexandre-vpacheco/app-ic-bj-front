@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, Image, View, Modal } from 'react-na
 import ModalButton from "./ModalButton";
 import Loading from "./Loading";
 
-const MenuButton = () => {
+const MenuButtonComoFunciona = () => {
 
     //const [visible, setVisible] = useState(false);
 
@@ -22,10 +22,14 @@ const MenuButton = () => {
         setModalVisible(true)
     }
 
-    // const handleHome = () => {
-    //     navigation.navigate('HomePage');
-    //     setModalVisible(false);
-    // }
+    const handleHome = () => {
+        setModalVisible(false);
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('HomePage');
+        }, 500)
+    }
 
     const handlePontosColeta = () => {
         setModalVisible(false);
@@ -33,15 +37,6 @@ const MenuButton = () => {
         setTimeout(() => {
             setVisible(false);
             navigation.navigate('PontosColeta')
-        }, 500)
-    }
-
-    const handleComoFunciona = () => {
-        setModalVisible(false);
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('ComoFunciona')
         }, 500)
     }
 
@@ -80,23 +75,17 @@ const MenuButton = () => {
                         <ModalButton onpress={modalClose} />
                         <Text style={styles.modalHeaderTxt}>Menu</Text>
                     </View>
-                    {/* <TouchableOpacity
+                    <TouchableOpacity
                         style={styles.modalButton}
                         onPress={handleHome}
                     >
                         <Text style={styles.modalText}>Home</Text>
-                    </TouchableOpacity> */}
+                    </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
                         onPress={handlePontosColeta}
                     >
                         <Text style={styles.modalText}>Aonde encontrar nossos pontos de coleta?</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.modalButton}
-                        onPress={handleComoFunciona}
-                    >
-                        <Text style={styles.modalText}>Como Funciona?</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
@@ -132,7 +121,7 @@ const MenuButton = () => {
     )
 }
 
-export default MenuButton
+export default MenuButtonComoFunciona
 
 const styles = StyleSheet.create({
 
@@ -180,12 +169,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#204722',
         color: 'white',
         borderRadius: 30,
-        height: 70,
-        padding: 10,
+        height: 62,
+        padding: 15,
     },
 
     modalText: {
-        fontSize: 13,
+        fontSize: 15,
         color: 'white'
     },
 

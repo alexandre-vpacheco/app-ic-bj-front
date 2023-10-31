@@ -7,7 +7,7 @@ const FaleConoscoButton = ({ onpress }) => {
         <TouchableOpacity 
             onPress={onpress}>
             <View style={styles.button}>
-                <Image style={styles.logoDescarte} source={{
+                <Image style={styles.logoFaleConosco} source={{
                     uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8d7912d4ae23ff87c045103da5b31f7692025e30/ReturnTrash/assets/contatoLogo.png',
                 }} />
 
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
         marginTop: 20,
         backgroundColor: '#204722',
         borderRadius: 45,
-        width: 380,
-        height: 60,
+        width: 350,
+        height: 70,
         //alignItems: 'flex-start',
         //justifyContent: 'center'
     },
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
         marginLeft: 15,
     },
 
-    logoDescarte: {
-        marginTop: -2,
+    logoFaleConosco: {
+        marginTop: 2,
         width: 65,
         height: 65,
         alignItems: 'flex-start',
