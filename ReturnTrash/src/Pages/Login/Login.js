@@ -1,64 +1,35 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, Alert } from 'react-native';
+import { StyleSheet, View, Image, TextInput, Alert } from 'react-native';
 import EntrarButton from '../../Components/EntrarButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
 import VoltarButtonLogin from '../../Components/VoltarButtonLogin';
-import fetch from 'node-fetch';
+//import fetch from 'node-fetch';
+import { useUser } from '../../Context/UserContext';
 
 export default function Login() {
 
+    const { login } = useUser();
+
     const [username, setUsername] = useState('');
 
-    const [password, setSenha] = useState('');
+    const [password, setPassword] = useState('');
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
 
-    const entrar = async () => {
+    //const [nome, setNome] = useState('');
+
+    const entrar = () => {
+       //navigation.navigate('HomePage')
 
         if (username == '' || password == '') {
             Alert.alert('Aviso', 'Os campos não podem estar vazios!')
         } else {
-
-            const url = "http://localhost:5000/api/auth/login";
-
-            const dadosUsuario = {
-                username: username,
-                password: password,
-            };
-
-            try {
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(dadosUsuario),
-                });
-
-                if (!response.ok) {
-                    console.log('Erro na requisição:', response.status);
-                } else {
-                    if (response.ok) {
-                        const data = await response.json();
-                        alert('Login bem-sucedido!', data);
-                        setVisible(true);
-                        setTimeout(() => {
-                            setVisible(false);
-                            navigation.navigate('HomePage', { nome: data.nameid });
-                        }, 500)
-                    } else {
-                        Alert.alert('Login falhou! Usuário já existe ou dados incorretos.');
-                        return;
-                    }
-                }
-            } catch (error) {
-                console.error('Erro na requisição de login:', error);
-            }
+            
+            login(username, password);
         }
-
     }
 
     const voltar = () => {
@@ -83,13 +54,13 @@ export default function Login() {
                 <TextInput
                     style={styles.input}
                     placeholder="Username"
-                    onChangeText={setUsername}
+                    onChangeText={(text) => setUsername(text)}
                     value={username}
                 />
                 <TextInput
                     style={styles.input}
                     placeholder="Senha"
-                    onChangeText={setSenha}
+                    onChangeText={(text) => setPassword(text)}
                     value={password}
                     secureTextEntry
                 />
@@ -114,7 +85,8 @@ const styles = StyleSheet.create({
     },
 
     container2: {
-        marginTop: 210,
+        marginTop: 150,
+        marginBottom: 70,
         //marginLeft: 8,
         flex: 1,
         backgroundColor: '#856192',
@@ -123,11 +95,10 @@ const styles = StyleSheet.create({
     },
 
     container3: {
-        marginTop: 50,
-        marginBottom: 70,
+        marginTop: -20,
+        marginBottom: 100,
         flexDirection: 'column',
         //flex: 0.33,
-        backgroundColor: '#856192',
         //alignItems: 'center',
         justifyContent: 'center',
     },
@@ -148,15 +119,15 @@ const styles = StyleSheet.create({
 
     input: {
         width: 320,
-        height: 60,
+        height: 50,
         margin: 12,
-        borderWidth: 0.5,
+        borderWidth: 1,
         padding: 10,
         borderRadius: 30,
         alignItems: 'center',
         justifyContent: 'center',
         borderColor: 'white',
-        color: 'white'
+        color: 'white',
     },
 
 });

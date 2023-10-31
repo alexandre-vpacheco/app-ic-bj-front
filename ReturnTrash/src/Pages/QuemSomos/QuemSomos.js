@@ -1,66 +1,33 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Modal, TouchableOpacity } from 'react-native';
-import DescartarButton from '../../Components/DescartarButton';
-import UsarPontosButton from '../../Components/UsarPontosButton';
-import FaleConoscoButton from '../../Components/FaleConoscoButton';
-import SairButton from '../../Components/SairButton';
-import { useNavigation } from '@react-navigation/native';
-import Loading from '../../Components/Loading';
-import MenuButton from '../../Components/MenuButton';
-import { useUser } from '../../Context/UserContext';
-import Footer from '../../Components/Footer/Footer';
+//import { useNavigation } from '@react-navigation/native';
+//import Loading from '../../Components/Loading';
+import MenuButtonQuemSomos from '../../Components/MenuButtonQuemSomos';
+//import { useUser } from '../../Context/UserContext';
 //import MenuLateral from '../../Components/MenuLateral';
 
 export default function HomePage() {
 
-    const { user } = useUser();
+    //const { user } = useUser();
 
     const [visible, setVisible] = useState(false);
 
-    const navigation = useNavigation();
-
-    const descarte = () => {
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('Descarte')
-        }, 500)
-    }
-
-    const pontos = () => {
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('Pontos')
-        }, 500)
-
-    }
-
-    const contato = () => {
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('Contato')
-        }, 500)
-    }
+    //const navigation = useNavigation();
 
     return (
         <>
             <View style={styles.container1}>
-                <Loading visible={visible} />
                 <View style={styles.header}>
-                    <MenuButton />
+                    <MenuButtonQuemSomos />
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
-                <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
-                <DescartarButton onpress={descarte} />
-                <UsarPontosButton onpress={pontos} />
-                <FaleConoscoButton onpress={contato} />
-                <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
-                <View style={styles.footer}>
-                    <Footer />
+                <Text style={styles.txt}>QUEM SOMOS</Text>
+                <View >
+                    <Image style={styles.footer} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
+                    }} />
                 </View>
             </View>
         </>
@@ -120,7 +87,7 @@ const styles = StyleSheet.create({
 
     container1: {
         flexDirection: 'column',
-        flex: 1,
+        //flex: 1,
         backgroundColor: '#856192',
         alignItems: 'center',
         //justifyContent: 'center',
@@ -160,18 +127,18 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20,
         color: 'white',
-        marginTop: 50,
+        marginTop: 130,
         marginLeft: -80,
+        marginTop: 18,
         fontWeight: 'bold',
     },
 
     footer: {
-        backgroundColor: '#B7DA00',
-        //flex: 0.2,
-        marginTop: 50,
+        flex: 0.4,
+        marginTop: 75,
+        marginBottom: 130,
         width: 450,
-        height: 180,
-        maxHeight: 800,
+        height: 80,
         //aspectRatio: 4,
     }
 
