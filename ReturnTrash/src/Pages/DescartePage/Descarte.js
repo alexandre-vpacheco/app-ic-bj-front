@@ -7,6 +7,8 @@ import SairButtonDescarte from '../../Components/SairButtonDescarte';
 import QrCodeButton from '../../Components/QrCodeButton';
 import CpfButton from '../../Components/CpfButton';
 import MenuButton from '../../Components/MenuButton';
+import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
+import Footer from '../../Components/Footer/Footer';
 
 export default function Descarte() {
 
@@ -59,39 +61,43 @@ export default function Descarte() {
             <View style={styles.container}>
                 <Loading visible={visible} />
                 <View style={styles.header}>
-                    <MenuButton onpress={menuLateral} />
+                    <MenuButtonDescarte onpress={menuLateral} />
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
-                <View >
-                    <Text style={styles.txtBarra1}>                        </Text>
-                    <View style={styles.header2}>
-                        <Image style={styles.logoDescarte} source={{
-                            uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
-                        }} />
-                        <Text style={styles.txt}>Quero descartar!                     </Text>
+
+                <View style={styles.body}>
+
+
+                    <View >
+                        <Text style={styles.txtBarra1}>                        </Text>
+                        <View style={styles.header2}>
+                            <Image style={styles.logoDescarte} source={{
+                                uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
+                            }} />
+                            <Text style={styles.txt}>Quero descartar!                     </Text>
+                        </View>
+                        <Text style={styles.txtBarra2}>                       </Text>
                     </View>
-                    <Text style={styles.txtBarra2}>                       </Text>
+                    <Text style={styles.txt1}>Registrar descarte</Text>
+                    <QrCodeButton onpress={qrCodePage} />
+                    <Text style={styles.txt2}>Vincular CPF</Text>
+                    <CpfButton onpress={cpfPage} />
+                    <View style={styles.header2}>
+                        <Image style={styles.recLogo} source={{
+                            uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
+                        }} />
+                        <Text style={styles.txt3}>Nº de descartes do dia: 5</Text>
+                    </View>
+                    {/* <View style={styles.buttons}>
+                        <VoltarButtonDescarte onpress={voltar} />
+                        <SairButtonDescarte onpress={sair} />
+                    </View> */}
                 </View>
-                <Text style={styles.txt1}>Registrar descarte</Text>
-                <QrCodeButton onpress={qrCodePage} />
-                <Text style={styles.txt2}>Vincular CPF</Text>
-                <CpfButton onpress={cpfPage} />
-                <View style={styles.header2}>
-                    <Image style={styles.recLogo} source={{
-                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
-                    }} />
-                    <Text style={styles.txt3}>Nº de descartes do dia: 5</Text>
-                </View>
-                <View style={styles.buttons}>
-                    <VoltarButtonDescarte onpress={voltar} />
-                    <SairButtonDescarte onpress={sair} />
-                </View>
-                <View >
-                    <Image style={styles.footer} source={{
-                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
-                    }} />
+
+                <View style={styles.footer}>
+                    <Footer />
                 </View>
             </View>
 
@@ -105,6 +111,13 @@ const styles = StyleSheet.create({
         marginTop: 35,
         flexDirection: 'row',
         alignItems: 'flex-start',
+    },
+
+    body:{
+        flex: 1,
+        alignItems:'center',
+        justifyContent:'center',
+        marginTop:20
     },
 
     header2: {
@@ -212,11 +225,10 @@ const styles = StyleSheet.create({
     },
 
     footer: {
-        flex: 0.41,
-        marginTop: 15,
-        marginBottom: 10,
+        backgroundColor: '#B7DA00',
+        marginTop: 100,
         width: 450,
-        height: 80,
-    },
+        height: 120,
+    }
 
 });

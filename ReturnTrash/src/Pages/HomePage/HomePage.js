@@ -54,11 +54,13 @@ export default function HomePage() {
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
+                <View style={styles.body}>
                 <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
                 <DescartarButton onpress={descarte} />
                 <UsarPontosButton onpress={pontos} />
                 <FaleConoscoButton onpress={contato} />
                 <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
+                </View>
                 <View style={styles.footer}>
                     <Footer />
                 </View>
@@ -126,6 +128,12 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
     },
 
+    body:{
+        flex: 1,
+        alignItems:'center',
+        justifyContent:'center'
+    },
+
     logo: {
         marginTop: 12,
         width: 210,
@@ -161,18 +169,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         marginTop: 50,
-        marginLeft: -80,
+        marginLeft: -60,
         fontWeight: 'bold',
     },
 
     footer: {
         backgroundColor: '#B7DA00',
-        //flex: 0.2,
-        marginTop: 50,
+        marginTop: 100,
         width: 450,
-        height: 180,
-        maxHeight: 800,
-        //aspectRatio: 4,
+        height: 120,
     }
 
 });
