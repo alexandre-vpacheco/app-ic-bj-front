@@ -55,11 +55,11 @@ export default function HomePage() {
                     }} />
                 </View>
                 <View style={styles.body}>
-                <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
-                <DescartarButton onpress={descarte} />
-                <UsarPontosButton onpress={pontos} />
-                <FaleConoscoButton onpress={contato} />
-                <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
+                    <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
+                    <DescartarButton onpress={descarte} />
+                    <UsarPontosButton onpress={pontos} />
+                    <FaleConoscoButton onpress={contato} />
+                    <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -128,10 +128,10 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
     },
 
-    body:{
+    body: {
         flex: 1,
-        alignItems:'center',
-        justifyContent:'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     logo: {
@@ -147,11 +147,11 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1.5,
         borderTopColor: '#8F7975',
         borderBottomColor: '#8F7975',
-        padding: 20,
+        padding: 15,
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 21,
         color: 'white',
-        marginTop: 15,
+        marginTop: 45,
         //marginLeft: 10,
         alignItems: 'center'
     },

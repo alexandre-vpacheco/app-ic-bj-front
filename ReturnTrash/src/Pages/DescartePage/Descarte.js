@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
-import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
-import SairButtonDescarte from '../../Components/SairButtonDescarte';
+//import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
+//import SairButtonDescarte from '../../Components/SairButtonDescarte';
 import QrCodeButton from '../../Components/QrCodeButton';
 import CpfButton from '../../Components/CpfButton';
-import MenuButton from '../../Components/MenuButton';
+//import MenuButton from '../../Components/MenuButton';
 import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
 
@@ -16,24 +16,24 @@ export default function Descarte() {
 
     const navigation = useNavigation();
 
-    const qrCodePage = () => {
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('QrCodePage')
-        }, 500)
-    }
+    const openCamera = () => {
+        // navigation.navigate('CameraScreen'); 
+    };
+
+    // const qrCodePage = () => {
+    //     setVisible(true);
+    //     setTimeout(() => {
+    //         setVisible(false);
+    //         navigation.navigate('QrCodePage')
+    //     }, 500)
+    // }
 
     const cpfPage = () => {
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('CpfPage')
-        }, 500)
-    }
-
-    const menuLateral = () => {
-        console.log('Menu lateral clicado')
+        // setVisible(true);
+        // setTimeout(() => {
+        //     setVisible(false);
+        //     navigation.navigate('CpfPage')
+        // }, 500)
     }
 
     const voltar = () => {
@@ -60,31 +60,29 @@ export default function Descarte() {
         <>
             <View style={styles.container}>
                 <Loading visible={visible} />
-                <View style={styles.header}>
-                    <MenuButtonDescarte onpress={menuLateral} />
+                <View style={styles.header1}>
+                    <MenuButtonDescarte />
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
-
+                <View style={styles.header2}>
+                    <Text style={styles.txtBarra1}>                        </Text>
+                    <View style={styles.title}>
+                        <Image style={styles.logoDescarte} source={{
+                            uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
+                        }} />
+                        <Text style={styles.txt}>Quero descartar!                     </Text>
+                    </View>
+                    <Text style={styles.txtBarra2}>                       </Text>
+                </View>
                 <View style={styles.body}>
 
-
-                    <View >
-                        <Text style={styles.txtBarra1}>                        </Text>
-                        <View style={styles.header2}>
-                            <Image style={styles.logoDescarte} source={{
-                                uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
-                            }} />
-                            <Text style={styles.txt}>Quero descartar!                     </Text>
-                        </View>
-                        <Text style={styles.txtBarra2}>                       </Text>
-                    </View>
                     <Text style={styles.txt1}>Registrar descarte</Text>
-                    <QrCodeButton onpress={qrCodePage} />
+                    <QrCodeButton onpress={openCamera} />
                     <Text style={styles.txt2}>Vincular CPF</Text>
                     <CpfButton onpress={cpfPage} />
-                    <View style={styles.header2}>
+                    <View style={styles.preFooter}>
                         <Image style={styles.recLogo} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
                         }} />
@@ -95,34 +93,38 @@ export default function Descarte() {
                         <SairButtonDescarte onpress={sair} />
                     </View> */}
                 </View>
-
                 <View style={styles.footer}>
                     <Footer />
                 </View>
             </View>
-
         </>
     );
 }
 
 const styles = StyleSheet.create({
 
-    header: {
+    header1: {
         marginTop: 35,
         flexDirection: 'row',
         alignItems: 'flex-start',
     },
 
-    body:{
+    body: {
         flex: 1,
-        alignItems:'center',
-        justifyContent:'center',
-        marginTop:20
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 40
     },
 
     header2: {
+        marginTop: 10
+    },
+
+    title: {
         flexDirection: 'row',
-        //alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 5
     },
 
     txtBarra1: {
@@ -139,8 +141,8 @@ const styles = StyleSheet.create({
 
     logoDescarte: {
         marginTop: -10,
-        width: 55,
-        height: 55,
+        width: 65,
+        height: 65,
         //alignItems: 'flex-start',
         //justifyContent: 'center',
         marginLeft: 28,
@@ -148,15 +150,15 @@ const styles = StyleSheet.create({
     },
 
     txt: {
-        marginTop: 2,
+        //marginTop: 2,
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 21,
         color: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        //justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: 20,
-        marginBottom: -15,
+        marginLeft: 30,
+        //marginBottom: -15,
     },
 
     txt1: {
@@ -222,6 +224,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         //alignItems: 'space-evenly',
+    },
+
+    preFooter: {
+        flexDirection: 'row',
     },
 
     footer: {

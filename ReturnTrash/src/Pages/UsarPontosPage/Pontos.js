@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
-import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
-import SairButtonDescarte from '../../Components/SairButtonDescarte';
-import MenuButton from '../../Components/MenuButton';
+import Footer from '../../Components/Footer/Footer';
+import MenuButtonUsarPontos from '../../Components/MenuButtonUsarPontos';
 
 export default function Pontos() {
 
@@ -12,76 +11,37 @@ export default function Pontos() {
 
     const navigation = useNavigation();
 
-    const qrCodePage = () => {
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('QrCodePage')
-        }, 500)
-    }
-
-    const cpfPage = () => {
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('CpfPage')
-        }, 500)
-    }
-
-    const menuLateral = () => {
-        console.log('Menu lateral clicado')
-    }
-
-    const voltar = () => {
-        console.log('Voltar clicado')
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('HomePage')
-            console.log('Voltamos para a HomePage')
-        }, 500)
-    }
-
-    const sair = () => {
-        console.log('Voltar clicado')
-        setVisible(true);
-        setTimeout(() => {
-            setVisible(false);
-            navigation.navigate('Inicial')
-            console.log('Voltamos para a tela inicial')
-        }, 500)
-    }
-
     return (
         <>
             <View style={styles.container}>
                 <Loading visible={visible} />
-                <View style={styles.header}>
-                    <MenuButton onpress={menuLateral} />
+                <View style={styles.header1}>
+                    <MenuButtonUsarPontos />
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
 
-                <View >
+                <View style={styles.header2}>
                     <Text style={styles.txtBarra1}>                        </Text>
-                    <View style={styles.header2}>
-                        <Image style={styles.logoDescarte} source={{
-                            uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
+                    <View style={styles.title}>
+                        <Image style={styles.logoPontos} source={{
+                            uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8d7912d4ae23ff87c045103da5b31f7692025e30/ReturnTrash/assets/logoPontos.png',
                         }} />
-                        <Text style={styles.txt}>Quero usar meus pontos agora!               </Text>
+                        <Text style={styles.txt}>Quero usar meus pontos!                     </Text>
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
                 </View>
-                <View style={styles.buttons}>
-                    <VoltarButtonDescarte onpress={voltar} />
-                    <SairButtonDescarte onpress={sair} />
+
+                <View style={styles.body}>
+
+
+
+
                 </View>
-            </View>
-            <View >
-                <Image style={styles.footer} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
-                }} />
+                <View style={styles.footer}>
+                    <Footer />
+                </View>
             </View>
         </>
     );
@@ -89,15 +49,28 @@ export default function Pontos() {
 
 const styles = StyleSheet.create({
 
-    header: {
+    header1: {
         marginTop: 35,
         flexDirection: 'row',
         alignItems: 'flex-start',
     },
 
     header2: {
+        marginTop: 10
+    },
+
+    body: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 40
+    },
+
+    title: {
         flexDirection: 'row',
-        //alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: 5
     },
 
     txtBarra1: {
@@ -112,7 +85,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
 
-    logoDescarte: {
+    logoPontos: {
         marginTop: -10,
         width: 55,
         height: 55,
@@ -123,15 +96,15 @@ const styles = StyleSheet.create({
     },
 
     txt: {
-        marginTop: 2,
+        //marginTop: 2,
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 21,
         color: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        //justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: 20,
-        marginBottom: -15,
+        marginLeft: 30,
+        //marginBottom: -15,
     },
 
     txt1: {
@@ -199,11 +172,10 @@ const styles = StyleSheet.create({
     },
 
     footer: {
-        flex: 0.5,
-        //marginBottom: 10,
-        width: undefined,
-        height: undefined,
-        aspectRatio: 3.5
+        backgroundColor: '#B7DA00',
+        marginTop: 100,
+        width: 450,
+        height: 120,
     },
 
 });

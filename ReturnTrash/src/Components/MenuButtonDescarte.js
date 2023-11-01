@@ -14,13 +14,9 @@ const MenuButtonDescarte = () => {
 
     const navigation = useNavigation();
 
-    const modalClose = () => {
-        setModalVisible(false)
-    }
-
-    const handleModal = () => {
-        setModalVisible(true)
-    }
+    const toggleModal = () => {
+        setModalVisible(!modalVisible);
+    };
 
     const handleHome = () => {
         setModalVisible(false);
@@ -81,7 +77,7 @@ const MenuButtonDescarte = () => {
             <Modal transparent visible={modalVisible} >
                 <View style={styles.modal}>
                     <View style={styles.modalHeader}>
-                        <ModalButton onpress={modalClose} />
+                        <ModalButton onpress={toggleModal} />
                         <Text style={styles.modalHeaderTxt}>Menu</Text>
                     </View>
                     <TouchableOpacity
@@ -124,7 +120,7 @@ const MenuButtonDescarte = () => {
             </Modal>
             <Loading visible={visible} />
             <TouchableOpacity
-                onPress={handleModal}>
+                onPress={toggleModal}>
                 <View >
                     <Image style={styles.menuImage} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/44cc2aa4be90ff98d92544ddfe56b66c478f93e7/ReturnTrash/assets/logoHamburguer.png',
@@ -151,10 +147,9 @@ const styles = StyleSheet.create({
     },
 
     modal: {
-        //flex: 1,
-        backgroundColor: 'white',
+        flex: 1,
         height: 660,
-        width: 300,
+        width: 280,
         borderTopRightRadius: 30,
         borderBottomRightRadius: 30,
         borderWidth: 2,
@@ -184,8 +179,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#204722',
         color: 'white',
         borderRadius: 30,
-        height: 50,
+        height: 70,
         padding: 10,
+        alignItems: 'left',
+        justifyContent: 'center'
     },
 
     modalText: {

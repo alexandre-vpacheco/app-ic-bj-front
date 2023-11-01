@@ -1,18 +1,7 @@
 {
   "expo": {
-    "extra": {
-      "secureDomain": [
-        "http://localhost:5000/api/auth/login",
-        "http://localhost:5000/api/auth/register",
-        "http://192.168.1.5:5000/api/auth/login",
-        "http://192.168.1.5:5000/api/auth/register",
-        "exp://192.168.1.5:8081"
-      ],
-      "eas": {
-        "projectId": "793aad22-e54e-4488-85d8-5bc982b6e576"
-      }
-    },
     "name": "ReturnTrash",
+    "icon": "./assets/androidIcon.png",
     "slug": "ReturnTrash",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -33,21 +22,8 @@
       "supportsTablet": true
     },
     "android": {
+      "icon": "./assets/androidIcon.png",
       "config": {
-        "cleartext": {
-          "includes": [
-            "http://localhost:5000/api/auth/login",
-            "http://localhost:5000/api/auth/register",
-            "http://192.168.1.5:5000/api/auth/login",
-            "http://192.168.1.5:5000/api/auth/register",
-            "exp://192.168.1.5:8081",
-            "localhost:5000/api/auth/login",
-            "localhost:5000/api/auth/register",
-            "192.168.1.5:5000/api/auth/login",
-            "92.168.1.5:5000/api/auth/register",
-            "192.168.1.5:8081"
-          ]
-        },
         "permissions": [
           "INTERNET"
         ],
@@ -66,6 +42,11 @@
         "favicon": "./assets/favicon.png"
       },
       "package": "com.alexandrevpacheco.ReturnTrash"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a9332b2d-cb1c-49d7-badf-59f3ba6e828a"
+      }
     }
   }
 }
