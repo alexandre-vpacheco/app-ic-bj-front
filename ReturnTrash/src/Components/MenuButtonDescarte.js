@@ -3,26 +3,29 @@ import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, Image, View, Modal } from 'react-native';
 import ModalButton from "./ModalButton";
 import Loading from "./Loading";
-import * as Animatable from 'react-native-animatable';
 
-const MenuButton = () => {
+const MenuButtonDescarte = () => {
 
     //const [visible, setVisible] = useState(false);
 
     const [modalVisible, setModalVisible] = useState(false);
 
-    const toggleModal = () => {
-        setModalVisible(!modalVisible);
-    };
-
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
 
-    // const handleHome = () => {
-    //     navigation.navigate('HomePage');
-    //     setModalVisible(false);
-    // }
+    const toggleModal = () => {
+        setModalVisible(!modalVisible);
+    };
+
+    const handleHome = () => {
+        setModalVisible(false);
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('HomePage');
+        }, 500)
+    }
 
     const handlePontosColeta = () => {
         setModalVisible(false);
@@ -71,63 +74,65 @@ const MenuButton = () => {
 
     return (
         <>
-                <Modal transparent visible={modalVisible} >
-                    <View style={styles.modal}>
-                        <View style={styles.modalHeader}>
-                            <ModalButton onpress={toggleModal} />
-                            <Text style={styles.modalHeaderTxt}>Menu</Text>
-                        </View>
-                        {/* <TouchableOpacity
+            <Modal transparent visible={modalVisible} >
+                <View style={styles.modal}>
+                    <View style={styles.modalHeader}>
+                        <ModalButton onpress={toggleModal} />
+                        <Text style={styles.modalHeaderTxt}>Menu</Text>
+                    </View>
+                    <TouchableOpacity
                         style={styles.modalButton}
                         onPress={handleHome}
                     >
                         <Text style={styles.modalText}>Home</Text>
-                    </TouchableOpacity> */}
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPress={handlePontosColeta}
-                        >
-                            <Text style={styles.modalText}>Aonde encontrar nossos pontos de coleta?</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPress={handleComoFunciona}
-                        >
-                            <Text style={styles.modalText}>Como Funciona?</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPress={handleQuemSomos}
-                        >
-                            <Text style={styles.modalText}>Quem nós somos?</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPress={handleParceiras}
-                        >
-                            <Text style={styles.modalText}>Conheça nossas parceiras!</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPress={handleSair}
-                        >
-                            <Text style={styles.modalText}>Sair</Text>
-                        </TouchableOpacity>
-                    </View>
-                </Modal>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPress={handlePontosColeta}
+                    >
+                        <Text style={styles.modalText}>Aonde encontrar nossos pontos de coleta?</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPress={handleComoFunciona}
+                    >
+                        <Text style={styles.modalText}>Como Funciona?</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPress={handleQuemSomos}
+                    >
+                        <Text style={styles.modalText}>Quem nós somos?</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPress={handleParceiras}
+                    >
+                        <Text style={styles.modalText}>Conheça nossas parceiras!</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPress={handleSair}
+                    >
+                        <Text style={styles.modalText}>Sair</Text>
+                    </TouchableOpacity>
+                </View>
+            </Modal>
             <Loading visible={visible} />
             <TouchableOpacity
-                onPressIn={toggleModal}>
-                <Image style={styles.menuImage} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/44cc2aa4be90ff98d92544ddfe56b66c478f93e7/ReturnTrash/assets/logoHamburguer.png',
-                }} />
+                onPress={toggleModal}>
+                <View >
+                    <Image style={styles.menuImage} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/44cc2aa4be90ff98d92544ddfe56b66c478f93e7/ReturnTrash/assets/logoHamburguer.png',
+                    }} />
+                </View>
             </TouchableOpacity>
         </>
 
     )
 }
 
-export default MenuButton
+export default MenuButtonDescarte
 
 const styles = StyleSheet.create({
 
@@ -164,7 +169,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 10,
-        marginLeft: 30,
+        marginLeft: 10,
     },
 
     modalButton: {
@@ -181,7 +186,7 @@ const styles = StyleSheet.create({
     },
 
     modalText: {
-        fontSize: 14,
+        fontSize: 13,
         color: 'white'
     },
 
@@ -206,21 +211,5 @@ const styles = StyleSheet.create({
         //marginLeft:-15,
         //aspectRatio: 8.0,
     },
-
-    modalVisible: {
-        width: 200, // Largura do modal
-        height: '100%',
-        position: 'absolute',
-        left: 0,
-        backgroundColor: 'white',
-      },
-      
-      modalHidden: {
-        width: 0,
-        height: '100%',
-        position: 'absolute',
-        left: -200, // Posição inicial fora da tela
-        backgroundColor: 'white',
-      },
 
 });

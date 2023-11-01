@@ -55,12 +55,15 @@ export default function Cadastro() {
                 Alert.alert('Erro na requisição:', errorMessage);
             } else {
                 const data = await response.json();
-                alert('Cadastro bem-sucedido!', data);
+                setTimeout(() => {
+                    Alert.alert('Cadastro realizado!');
+                }, 500);
                 setVisible(true);
                 setTimeout(() => {
                     setVisible(false);
                     navigation.navigate('Login');
                 }, 500);
+
             }
         } catch (error) {
             console.log('Erro na requisição de cadastro:', error);

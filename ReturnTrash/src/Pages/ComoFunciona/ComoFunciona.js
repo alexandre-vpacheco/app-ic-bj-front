@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Modal, TouchableOpacity } from 'react-native';
 //import Loading from '../../Components/Loading';
 import MenuButtonComoFunciona from '../../Components/MenuButtonComoFunciona';
+import Footer from '../../Components/Footer/Footer';
 //import MenuLateral from '../../Components/MenuLateral';
 
 export default function HomePage() {
@@ -21,12 +22,11 @@ export default function HomePage() {
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
+                <View style={styles.body}>
                 <Text style={styles.txt}>COMO FUNCIONA</Text>
-
-                <View >
-                    <Image style={styles.footer} source={{
-                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/e7c5deab2b4c56209f2a7448ced4bc8f1a083602/ReturnTrash/assets/footer.jpg',
-                    }} />
+                </View>
+                <View style={styles.footer}>
+                    <Footer />
                 </View>
             </View>
         </>
@@ -86,10 +86,14 @@ const styles = StyleSheet.create({
 
     container1: {
         flexDirection: 'column',
-        //flex: 1,
+        flex: 1,
         backgroundColor: '#856192',
         alignItems: 'center',
         //justifyContent: 'center',
+    },
+
+    body:{
+        flex: 1,
     },
 
     logo: {
@@ -133,12 +137,10 @@ const styles = StyleSheet.create({
     },
 
     footer: {
-        flex: 0.4,
-        marginTop: 75,
-        marginBottom: 130,
+        backgroundColor: '#B7DA00',
+        marginTop: 100,
         width: 450,
-        height: 80,
-        //aspectRatio: 4,
+        height: 120,
     }
 
 });

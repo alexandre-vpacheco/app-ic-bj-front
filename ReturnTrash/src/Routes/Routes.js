@@ -14,6 +14,7 @@ import PontosColeta from '../Pages/PontosColeta/PontosColeta.js';
 import ComoFunciona from '../Pages/ComoFunciona/ComoFunciona.js';
 import QuemSomos from '../Pages/QuemSomos/QuemSomos.js'
 import Parceiras from '../Pages/Parceiras/Parceiras.js'
+import CameraScreen from '../Pages/CameraScreen/CameraScreen.js';
 
 const Stack = createNativeStackNavigator();
 
@@ -83,6 +84,11 @@ export default function Routes() {
             <Stack.Screen
                 name="Parceiras"
                 component={Parceiras}
+                options={{ headerShown: false }}
+            />
+            <Stack.Screen
+                name="CameraScreen"
+                component={CameraScreen}
                 options={{ headerShown: false }}
             />
         </Stack.Navigator>

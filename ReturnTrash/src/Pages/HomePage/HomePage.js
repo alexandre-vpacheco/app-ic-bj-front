@@ -54,11 +54,13 @@ export default function HomePage() {
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
-                <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
-                <DescartarButton onpress={descarte} />
-                <UsarPontosButton onpress={pontos} />
-                <FaleConoscoButton onpress={contato} />
-                <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
+                <View style={styles.body}>
+                    <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
+                    <DescartarButton onpress={descarte} />
+                    <UsarPontosButton onpress={pontos} />
+                    <FaleConoscoButton onpress={contato} />
+                    <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
+                </View>
                 <View style={styles.footer}>
                     <Footer />
                 </View>
@@ -126,6 +128,12 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
     },
 
+    body: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+
     logo: {
         marginTop: 12,
         width: 210,
@@ -139,11 +147,11 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1.5,
         borderTopColor: '#8F7975',
         borderBottomColor: '#8F7975',
-        padding: 20,
+        padding: 15,
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 21,
         color: 'white',
-        marginTop: 15,
+        marginTop: 45,
         //marginLeft: 10,
         alignItems: 'center'
     },
@@ -161,18 +169,15 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         marginTop: 50,
-        marginLeft: -80,
+        marginLeft: -60,
         fontWeight: 'bold',
     },
 
     footer: {
         backgroundColor: '#B7DA00',
-        //flex: 0.2,
-        marginTop: 50,
+        marginTop: 100,
         width: 450,
-        height: 180,
-        maxHeight: 800,
-        //aspectRatio: 4,
+        height: 120,
     }
 
 });

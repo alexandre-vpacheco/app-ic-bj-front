@@ -1,18 +1,20 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, Image, View } from 'react-native';
 
-
 const QrCodeButton = ({ onpress }) => {
+
+
+
     return (
-        <TouchableOpacity 
-            onPress={onpress}>
-            <View style={styles.button}>
-                <Text style={styles.buttonText}>QR Code</Text>
-                <Image style={styles.logoQrCode} source={{
-                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/4d85b3700787e805112e75e800658e7954cfddd9/ReturnTrash/assets/qrCode.png',
-                }} />
-            </View>
-        </TouchableOpacity>
+            <TouchableOpacity
+                onPress={onpress}>
+                <View style={styles.button}>
+                    <Text style={styles.buttonText}>QR Code</Text>
+                    <Image style={styles.logoQrCode} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/4d85b3700787e805112e75e800658e7954cfddd9/ReturnTrash/assets/qrCode.png',
+                    }} />
+                </View>
+            </TouchableOpacity>        
     )
 }
 
