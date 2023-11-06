@@ -9,11 +9,11 @@ import { useUser } from '../../Context/UserContext';
 
 export default function Login() {
 
-    const { login } = useUser();
-
     const [username, setUsername] = useState('');
 
     const [password, setPassword] = useState('');
+
+    const { login } = useUser();
 
     const [visible, setVisible] = useState(false);
 
@@ -22,13 +22,19 @@ export default function Login() {
     //const [nome, setNome] = useState('');
 
     const entrar = () => {
-       //navigation.navigate('HomePage')
 
         if (username == '' || password == '') {
+            setVisible(true);
+            setTimeout(() => {
+                setVisible(false);
+            }, 500)
             Alert.alert('Aviso', 'Os campos não podem estar vazios!')
         } else {
-            
+            setVisible(true);
             login(username, password);
+            setTimeout(() => {
+                setVisible(false);
+            }, 1500)
         }
     }
 
@@ -36,8 +42,8 @@ export default function Login() {
         console.log('Voltar clicado')
         setVisible(true);
         setTimeout(() => {
-            setVisible(false);
             navigation.navigate('Inicial')
+            setVisible(false);
             console.log('Voltamos para a tela inicial')
         }, 500)
 
@@ -56,6 +62,7 @@ export default function Login() {
                     placeholder="Username"
                     onChangeText={(text) => setUsername(text)}
                     value={username}
+                    autoFocus={true}
                 />
                 <TextInput
                     style={styles.input}

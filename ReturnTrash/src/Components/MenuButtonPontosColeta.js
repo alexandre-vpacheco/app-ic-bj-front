@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, Image, View, Modal } from 'react-na
 import ModalButton from "./ModalButton";
 import Loading from "./Loading";
 
-const MenuButton = () => {
+const MenuButtonPontosColeta = () => {
 
     //const [visible, setVisible] = useState(false);
 
@@ -120,7 +120,7 @@ const MenuButton = () => {
     )
 }
 
-export default MenuButton
+export default MenuButtonPontosColeta
 
 const styles = StyleSheet.create({
 

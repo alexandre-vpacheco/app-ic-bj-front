@@ -72,7 +72,7 @@ export default function Descarte() {
                         <Image style={styles.logoDescarte} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
                         }} />
-                        <Text style={styles.txt}>Quero descartar!                     </Text>
+                        <Text style={styles.txt}>Quero descartar!                        </Text>
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
                 </View>
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     },
 
     header2: {
-        marginTop: 10
+        marginTop: 35
     },
 
     title: {
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
         height: 65,
         //alignItems: 'flex-start',
         //justifyContent: 'center',
-        marginLeft: 28,
+        marginLeft: 35,
         marginBottom: -15,
     },
 

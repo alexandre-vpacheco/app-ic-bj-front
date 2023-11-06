@@ -14,13 +14,9 @@ export const UserProvider = ({ children }) => {
 
   const login = async (username, password) => {
 
-    console.log('Chegou aqui')
-
     const url = "https://app-ic-bj-back-production.up.railway.app/api/auth/login";
     //const url = "http://localhost:5000/api/auth/login";
-
     try {
-
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -32,9 +28,7 @@ export const UserProvider = ({ children }) => {
       if (response.ok) {
         const data = await response.json();
         setUser({ nameid: data.nameid });
-        setVisible(true);
         setTimeout(() => {
-          setVisible(false);
           navigation.navigate('HomePage');
         }, 500)
       }

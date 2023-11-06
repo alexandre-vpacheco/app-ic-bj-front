@@ -25,8 +25,8 @@ export default function Routes() {
                 name="Inicial"
                 component={Inicial}
                 options={{ headerShown: false }}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
                 name="Login"
                 component={Login}
                 options={{ headerShown: false }}
@@ -36,7 +36,7 @@ export default function Routes() {
                 component={Cadastro}
                 options={{ headerShown: false }}
             /> */}
-            <Stack.Screen
+            {/* <Stack.Screen
                 name="HomePage"
                 component={HomePage}
                 options={{ headerShown: false }}
@@ -45,27 +45,27 @@ export default function Routes() {
                 name="Descarte"
                 component={Descarte}
                 options={{ headerShown: false }}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
                 name="Pontos"
                 component={Pontos}
                 options={{ headerShown: false }}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
                 name="Contato"
                 component={Contato}
                 options={{ headerShown: false }}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
                 name="QrCodePage"
                 component={QrCodePage}
                 options={{ headerShown: false }}
-            />
-            <Stack.Screen
+            /> */}
+            {/* <Stack.Screen
                 name="CpfPage"
                 component={CpfPage}
                 options={{ headerShown: false }}
-            />
+            /> */}
             <Stack.Screen
                 name="PontosColeta"
                 component={PontosColeta}
