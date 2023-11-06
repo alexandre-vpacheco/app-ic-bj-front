@@ -26,19 +26,18 @@ export default function Parceiras() {
                 <View style={styles.header2}>
                     <Text style={styles.txtBarra1}>                        </Text>
                     <View style={styles.title}>
-                        <Image style={styles.logoLocais} source={{
+                        <Image style={styles.logoParceiras} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8581ed4cb37b13fb04b4f80939f9593d5a741cd5/ReturnTrash/assets/parceiras.png',
-                        }} />  
+                        }} />
                         <Text style={styles.txt}>Conheça nossas parceiras!                             </Text>
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
                 </View>
 
                 <View style={styles.body}>
-
-
-
-
+                    <Image style={styles.parceirasImg} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/dcbab49c629b3d86bc546c9445d3724a65c68071/ReturnTrash/assets/parceiras2.png',
+                    }} />
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -67,6 +66,12 @@ const styles = StyleSheet.create({
         marginTop: 40
     },
 
+    parceirasImg: {
+        marginTop: 12,
+        width: 330,
+        height: 300,
+    }, 
+
     title: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -86,7 +91,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
 
-    logoLocais: {
+    logoParceiras: {
         marginTop: -10,
         width: 55,
         height: 55,

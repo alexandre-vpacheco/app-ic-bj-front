@@ -27,18 +27,17 @@ export default function PontosColeta() {
                     <View style={styles.title}>
                         <Image style={styles.logoLocais} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8581ed4cb37b13fb04b4f80939f9593d5a741cd5/ReturnTrash/assets/local.png',
-                        }} />  
+                        }} />
                         <Text style={styles.txt}>Aonde encontrar nossos {'\n'}
-                        pontos de coleta? </Text>
+                            pontos de coleta? </Text>
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
                 </View>
 
                 <View style={styles.body}>
-
-
-
-
+                    <Image style={styles.bodyLogo} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/dcbab49c629b3d86bc546c9445d3724a65c68071/ReturnTrash/assets/maps.png',
+                    }} />
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -64,7 +63,13 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40
+        marginTop: 80
+    },
+
+    bodyLogo: {
+        marginTop: 12,
+        width: 270,
+        height: 400,
     },
 
     title: {
