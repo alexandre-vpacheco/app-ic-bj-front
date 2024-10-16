@@ -57,6 +57,7 @@ export default function ObrigadoPorAjudar() {
                     <Text style={styles.txt}>     OBRIAGDO POR AJUDAR O PLANETA HOJE!                </Text>
                     <Text style={styles.txt}>     TOTAL DE PONTOS ACUMULADOS: 100               </Text>
                     <Text style={styles.txt}>                                                </Text>
+                    <Text style={styles.txt}>                                                </Text>
                     <Text style={styles.txt}>   DESCARTAR NOVAMENTE,   HOME ou USAR MEUS PONTOS </Text>
                 </View>
                 <View style={styles.body}>
