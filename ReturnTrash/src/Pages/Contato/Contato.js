@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert, TextInput } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../../Components/Footer/Footer';
 import MenuButtonUsarPontos from '../../Components/MenuButtonUsarPontos';
+import EnviarButton from '../../Components/EnviarButton';
 
 export default function Contato() {
 
@@ -27,7 +28,7 @@ export default function Contato() {
                     <View style={styles.title}>
                         <Image style={styles.logoContato} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8d7912d4ae23ff87c045103da5b31f7692025e30/ReturnTrash/assets/contatoLogo.png',
-                        }} />  
+                        }} />
                         <Text style={styles.txt}>Fale conosco!                              </Text>
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
@@ -35,9 +36,31 @@ export default function Contato() {
 
                 <View style={styles.body}>
 
+                    <Text style={styles.bodyText}>Nome:</Text>
+                    <TextInput
+                        placeholder=''
+                        style={styles.input}
+                    />
+                    <Text style={styles.bodyText}>E-mail:</Text>
+                    <TextInput
+                        placeholder=''
+                        style={styles.input}
 
+                    />
+                    <Text style={styles.bodyText}>   Assunto:</Text>
+                    <TextInput
+                        placeholder=''
+                        style={styles.input}
 
-
+                    />
+                    <Text style={styles.bodyText}>       Mensagem:</Text>
+                    <TextInput
+                        placeholder=''
+                        style={styles.input2}
+                    />
+                    <View style={styles.buttonsBox}>
+                        <EnviarButton />
+                    </View>
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -164,11 +187,53 @@ const styles = StyleSheet.create({
         //justifyContent: 'center',
     },
 
+    input: {
+        height: 50,
+        width: 320,
+        borderWidth: 1,
+        borderColor: 'white',
+        color: 'black',
+        marginBottom: 10,
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: 'white',
+        borderColor: '#204722',
+        borderWidth: 5
+    },
+
+    input2: {
+        height: 50,
+        width: 320,
+        borderWidth: 1,
+        color: 'black',
+        marginBottom: 10,
+        padding: 10,
+        borderRadius: 10,
+        backgroundColor: 'white',
+        borderColor: '#204722',
+        borderWidth: 5
+    },
+
+    bodyText: {
+        fontWeight: 'bold',
+        fontSize: 19,
+        color: 'white',
+        marginLeft: -250,
+        marginBottom: 5
+    },
+
     buttons: {
         marginTop: 35,
         flexDirection: 'row',
         justifyContent: 'center',
         //alignItems: 'space-evenly',
+    },
+
+    buttonsBox: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: 20
     },
 
     footer: {

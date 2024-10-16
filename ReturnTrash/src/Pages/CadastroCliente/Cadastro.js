@@ -14,6 +14,7 @@ export default function Cadastro() {
     const [email, setEmail] = useState('');
     const [confirmarEmail, setConfirmarEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [cpf, setCpf] = useState('');
 
     const [visible, setVisible] = useState(false);
 
@@ -21,7 +22,7 @@ export default function Cadastro() {
 
     const handleCadastro = async () => {
 
-        if (nome === '' || username === '' || email === '' || password === '') {
+        if (nome === '' || username === '' || email === '' || password === '' || cpf === '') {
             Alert.alert('Aviso', 'Todos os campos devem estar preenchidos!');
             return;
         }
@@ -39,6 +40,7 @@ export default function Cadastro() {
             username: username,
             emails: email,
             password: password,
+            cpf: cpf,
         };
 
         try {
@@ -86,19 +88,19 @@ export default function Cadastro() {
                 <View style={styles.body}>
 
                     <TextInput
-                        placeholder='Nome'
+                        placeholder='Nome:'
                         style={styles.input}
                         onChangeText={setNome}
                     />
 
                     <TextInput
-                        placeholder='Username'
+                        placeholder='Username:'
                         style={styles.input}
                         onChangeText={setUsername}
                     />
 
                     <TextInput
-                        placeholder='E-mail'
+                        placeholder='E-mail:'
                         style={styles.input}
                         onChangeText={setEmail}
                         keyboardType="email-address"
@@ -112,11 +114,18 @@ export default function Cadastro() {
                     />
 
                     <TextInput
+                        placeholder='CPF:'
+                        style={styles.input}
+                        onChangeText={setCpf}
+                    />
+
+                    <TextInput
                         placeholder='Senha:'
                         style={styles.input}
                         onChangeText={setPassword}
                         secureTextEntry
                     />
+                    
                     <View style={styles.buttonsBox}>
                         <CadastrarButton onpress={handleCadastro} />
                         <VoltarButtonCadastro onpress={handleVoltar} />
@@ -141,11 +150,13 @@ const styles = StyleSheet.create({
     },
 
     input: {
+        fontSize: 18,
         height: 60,
         width: 'auto',
         borderWidth: 1,
         borderColor: 'white',
-        color: 'white',
+        shadowColor: 'black',
+        color: 'black',
         marginBottom: 10,
         padding: 10,
         borderRadius: 30
@@ -161,7 +172,6 @@ const styles = StyleSheet.create({
     bodyTxt: {
         fontWeight: 'bold',
         fontSize: 18,
-        color: 'white',
         marginTop: 10,
         marginBottom: 5,
         alignItems: 'center'

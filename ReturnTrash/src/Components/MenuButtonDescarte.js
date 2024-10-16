@@ -82,37 +82,37 @@ const MenuButtonDescarte = () => {
                     </View>
                     <TouchableOpacity
                         style={styles.modalButton}
-                        onPress={handleHome}
+                        onPressIn={handleHome}
                     >
                         <Text style={styles.modalText}>Home</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
-                        onPress={handlePontosColeta}
+                        onPressIn={handlePontosColeta}
                     >
                         <Text style={styles.modalText}>Aonde encontrar nossos pontos de coleta?</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
-                        onPress={handleComoFunciona}
+                        onPressIn={handleComoFunciona}
                     >
                         <Text style={styles.modalText}>Como Funciona?</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
-                        onPress={handleQuemSomos}
+                        onPressIn={handleQuemSomos}
                     >
                         <Text style={styles.modalText}>Quem nós somos?</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
-                        onPress={handleParceiras}
+                        onPressIn={handleParceiras}
                     >
                         <Text style={styles.modalText}>Conheça nossas parceiras!</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.modalButton}
-                        onPress={handleSair}
+                        onPressIn={handleSair}
                     >
                         <Text style={styles.modalText}>Sair</Text>
                     </TouchableOpacity>
@@ -120,7 +120,7 @@ const MenuButtonDescarte = () => {
             </Modal>
             <Loading visible={visible} />
             <TouchableOpacity
-                onPress={toggleModal}>
+                onPressIn={toggleModal}>
                 <View >
                     <Image style={styles.menuImage} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/44cc2aa4be90ff98d92544ddfe56b66c478f93e7/ReturnTrash/assets/logoHamburguer.png',

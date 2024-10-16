@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "ReturnTrash",
+    "description": "App de sistema de reciclagem e cashback.",
     "icon": "./assets/androidIcon.png",
     "slug": "ReturnTrash",
     "version": "1.0.0",
