@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Image, TextInput, Alert } from 'react-native';
+import { StyleSheet, View, Image, TextInput, Alert, SafeAreaView } from 'react-native';
 import EntrarButton from '../../Components/EntrarButton';
 import { useNavigation } from '@react-navigation/native';
 import Loading from '../../Components/Loading';
-import VoltarButtonLogin from '../../Components/VoltarButtonLogin';
+//import VoltarButtonLogin from '../../Components/VoltarButtonLogin';
 //import fetch from 'node-fetch';
 import { useUser } from '../../Context/UserContext';
+//import { KeyboardAvoidingView } from 'react-native';
 
 export default function Login() {
-
-    const { login } = useUser();
 
     const [username, setUsername] = useState('');
 
     const [password, setPassword] = useState('');
+
+    const { login } = useUser();
 
     const [visible, setVisible] = useState(false);
 
@@ -22,13 +23,19 @@ export default function Login() {
     //const [nome, setNome] = useState('');
 
     const entrar = () => {
-       //navigation.navigate('HomePage')
 
         if (username == '' || password == '') {
+            setVisible(true);
+            setTimeout(() => {
+                setVisible(false);
+            }, 500)
             Alert.alert('Aviso', 'Os campos não podem estar vazios!')
         } else {
-            
+            setVisible(true);
             login(username, password);
+            setTimeout(() => {
+                setVisible(false);
+            }, 1500)
         }
     }
 
@@ -36,69 +43,74 @@ export default function Login() {
         console.log('Voltar clicado')
         setVisible(true);
         setTimeout(() => {
-            setVisible(false);
             navigation.navigate('Inicial')
+            setVisible(false);
             console.log('Voltamos para a tela inicial')
         }, 500)
 
     }
 
     return (
-
-        <View style={styles.container1}>
-            <Image style={styles.logo} source={{
-                uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
-            }} />
+        <>
             <Loading visible={visible} />
-            <View style={styles.container2}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Username"
-                    onChangeText={(text) => setUsername(text)}
-                    value={username}
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Senha"
-                    onChangeText={(text) => setPassword(text)}
-                    value={password}
-                    secureTextEntry
-                />
+            <View style={styles.container}>
+                <Image style={styles.logo} source={{
+                    uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
+                }} />
+                <View style={styles.body}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Username"
+                      //onChangeText={(text) => setUsername(text)}
+                        onChangeText={setUsername}
+                        value={username}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Senha"
+                        onChangeText={setPassword}
+                        value={password}
+                        secureTextEntry
+                    />
+                </View>
+                <View style={styles.buttons}>
+                    <EntrarButton onpress={entrar} />
+                </View>
             </View>
-            <View style={styles.container3}>
-                <EntrarButton onpress={entrar} />
-                <VoltarButtonLogin onpress={voltar} />
-            </View>
-        </View>
 
-
+        </>
     );
 }
 
 const styles = StyleSheet.create({
 
-    container1: {
+    flexStyle: {
+        flex: 1,
+        backgroundColor: '#856192'
+    },
+
+    container: {
         flex: 1,
         backgroundColor: '#856192',
         alignItems: 'center',
         //justifyContent: 'center',
     },
 
-    container2: {
-        marginTop: 150,
-        marginBottom: 70,
+    body: {
+        marginTop: 180,
+        marginBottom: 10,
         //marginLeft: 8,
-        flex: 1,
+        //flex: 1,
         backgroundColor: '#856192',
         //alignItems: 'center',
         justifyContent: 'center',
     },
 
-    container3: {
+    buttons: {
         marginTop: -20,
         marginBottom: 100,
         flexDirection: 'column',
-        //flex: 0.33,
+        flex: 1,
         //alignItems: 'center',
         justifyContent: 'center',
     },

@@ -9,6 +9,8 @@ import CpfButton from '../../Components/CpfButton';
 //import MenuButton from '../../Components/MenuButton';
 import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
+import CodigoLixeira from '../../Components/CodigoLixeira';
+import CodeInput from '../../Components/CodigoLixeira';
 
 export default function Descarte() {
 
@@ -72,22 +74,25 @@ export default function Descarte() {
                         <Image style={styles.logoDescarte} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
                         }} />
-                        <Text style={styles.txt}>Quero descartar!                     </Text>
+                        <Text style={styles.txt}>Quero descartar!                        </Text>
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
                 </View>
                 <View style={styles.body}>
 
-                    <Text style={styles.txt1}>Registrar descarte</Text>
+                    {/* <Text style={styles.txt1}>Registrar descarte</Text> 
                     <QrCodeButton onpress={openCamera} />
                     <Text style={styles.txt2}>Vincular CPF</Text>
-                    <CpfButton onpress={cpfPage} />
-                    <View style={styles.preFooter}>
+                    <CpfButton onpress={cpfPage} /> */}
+                    <View >
                         <Image style={styles.recLogo} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
                         }} />
-                        <Text style={styles.txt3}>Nº de descartes do dia: 5</Text>
+                        {/* <Text style={styles.txt3}>Nº de descartes do dia: 5</Text> */}
                     </View>
+                    <Text style={styles.txt2}>Para vincular com a lixeira, digite o código presente nela:</Text>
+
+                    <CodeInput />
                     {/* <View style={styles.buttons}>
                         <VoltarButtonDescarte onpress={voltar} />
                         <SairButtonDescarte onpress={sair} />
@@ -117,7 +122,7 @@ const styles = StyleSheet.create({
     },
 
     header2: {
-        marginTop: 10
+        marginTop: 35
     },
 
     title: {
@@ -145,7 +150,7 @@ const styles = StyleSheet.create({
         height: 65,
         //alignItems: 'flex-start',
         //justifyContent: 'center',
-        marginLeft: 28,
+        marginLeft: 35,
         marginBottom: -15,
     },
 
@@ -174,14 +179,15 @@ const styles = StyleSheet.create({
     },
 
     txt2: {
-        marginTop: 20,
-        fontWeight: 'bold',
+        //marginTop: 2,
+        //fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
-        //alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        //justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -200,
+        marginLeft: 20,
+        marginRight: 10,
         //marginBottom: -15,
     },
 
@@ -206,10 +212,9 @@ const styles = StyleSheet.create({
     },
 
     recLogo: {
-        marginTop: 18,
-        marginLeft: -8,
-        width: 100,
-        height: 100,
+        marginTop: -30,
+        width: 150,
+        height: 150,
     },
 
     container: {

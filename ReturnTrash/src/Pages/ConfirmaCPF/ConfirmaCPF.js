@@ -31,6 +31,7 @@ export default function ConfirmaCPF() {
         // } else {
         //     Alert.alert('Erro', 'Por favor, insira um CPF válido com 3 dígitos.');
         // }
+
     };
 
     // const voltar = () => {
