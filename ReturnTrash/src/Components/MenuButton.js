@@ -7,8 +7,6 @@ import * as Animatable from 'react-native-animatable';
 
 const MenuButton = () => {
 
-    //const [visible, setVisible] = useState(false);
-
     const [modalVisible, setModalVisible] = useState(false);
 
     const toggleModal = () => {
@@ -18,11 +16,6 @@ const MenuButton = () => {
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
-
-    // const handleHome = () => {
-    //     navigation.navigate('HomePage');
-    //     setModalVisible(false);
-    // }
 
     const handlePontosColeta = () => {
         setModalVisible(false);
@@ -71,50 +64,50 @@ const MenuButton = () => {
 
     return (
         <>
-                <Modal transparent visible={modalVisible} >
-                    <View style={styles.modal}>
-                        <View style={styles.modalHeader}>
-                            <ModalButton onpress={toggleModal} />
-                            <Text style={styles.modalHeaderTxt}>Menu</Text>
-                        </View>
-                        {/* <TouchableOpacity
+            <Modal transparent visible={modalVisible} >
+                <View style={styles.modal}>
+                    <View style={styles.modalHeader}>
+                        <ModalButton onpress={toggleModal} />
+                        <Text style={styles.modalHeaderTxt}>Menu</Text>
+                    </View>
+                    {/* <TouchableOpacity
                         style={styles.modalButton}
                         onPress={handleHome}
                     >
                         <Text style={styles.modalText}>Home</Text>
                     </TouchableOpacity> */}
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPressIn={handlePontosColeta}
-                        >
-                            <Text style={styles.modalText}>Aonde encontrar nossos pontos de coleta?</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPressIn={handleComoFunciona}
-                        >
-                            <Text style={styles.modalText}>Como Funciona?</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPressIn={handleQuemSomos}
-                        >
-                            <Text style={styles.modalText}>Quem nós somos?</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPressIn={handleParceiras}
-                        >
-                            <Text style={styles.modalText}>Conheça nossas parceiras!</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={styles.modalButton}
-                            onPressIn={handleSair}
-                        >
-                            <Text style={styles.modalText}>Sair</Text>
-                        </TouchableOpacity>
-                    </View>
-                </Modal>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPressIn={handlePontosColeta}
+                    >
+                        <Text style={styles.modalText}>Aonde encontrar nossos pontos de coleta?</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPressIn={handleComoFunciona}
+                    >
+                        <Text style={styles.modalText}>Como Funciona?</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPressIn={handleQuemSomos}
+                    >
+                        <Text style={styles.modalText}>Quem nós somos?</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPressIn={handleParceiras}
+                    >
+                        <Text style={styles.modalText}>Conheça nossas parceiras!</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.modalButton}
+                        onPressIn={handleSair}
+                    >
+                        <Text style={styles.modalText}>Sair</Text>
+                    </TouchableOpacity>
+                </View>
+            </Modal>
             <Loading visible={visible} />
             <TouchableOpacity
                 onPressIn={toggleModal}>
@@ -213,14 +206,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: 0,
         backgroundColor: 'white',
-      },
-      
-      modalHidden: {
+    },
+
+    modalHidden: {
         width: 0,
         height: '100%',
         position: 'absolute',
         left: -200, // Posição inicial fora da tela
         backgroundColor: 'white',
-      },
+    },
 
 });

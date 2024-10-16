@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        height: 80,
+        height: 50,
         width: 320,
         borderWidth: 1,
         borderColor: 'white',
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     },
 
     input2: {
-        height: 1000,
+        height: 50,
         width: 320,
         borderWidth: 1,
         color: 'black',

@@ -50,15 +50,14 @@ export default function Pontos() {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.favoritosBox}>
-                            <Text style={styles.favoritosText1}>   Pão de Açúcar
-                                <AntDesign name="rightcircleo" size={24} style={styles.arrow} />
-                            </Text>
-                            <Text style={styles.favoritosText2}>   Multimix
-                                <AntDesign name="rightcircleo" size={24} style={styles.arrow} />
-                            </Text>
-                            <Text style={styles.favoritosText3}>   Assaí
-                                <AntDesign name="rightcircleo" size={24} style={styles.arrow} />
-                            </Text>
+                            <View style={styles.favoritosBox2}>
+                                <Text style={styles.favoritosText1}>   Pão de Açúcar                                          {'\u003E'}
+                                    
+                                </Text>
+                                <Text style={styles.line}></Text>
+                                <Text style={styles.favoritosText2}>   Multimix                                                    {'\u003E'}
+                                </Text>
+                            </View>
                         </View>
                     </View>
                     <View style={styles.outros}>
@@ -68,7 +67,7 @@ export default function Pontos() {
                                 <Text style={styles.saldoText}>Seu saldo: </Text>
                                 <Text style={styles.saldoText}>R$ 400,00</Text>
                             </View>
-                            <TouchableOpacity style={styles.historicoBox}>Histórico</TouchableOpacity>
+                            <TouchableOpacity style={styles.historicoBox}><Text style={styles.saldoText}>Histórico</Text></TouchableOpacity>
                         </View>
                     </View>
                 </View>
@@ -81,6 +80,11 @@ export default function Pontos() {
 }
 
 const styles = StyleSheet.create({
+
+    line: {
+        borderBottomColor: 'black',
+        borderBottomWidth: 2
+    },
 
     header1: {
         marginTop: 35,
@@ -152,39 +156,41 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderRadius: 20,
         width: 330,
-        height: 180,
+        height: 120,
         justifyContent: 'center',
     },
 
-    arrow: {
-        position: 'absolute',
-        right: 35,
+    favoritosBox2: {
+        justifyContent: 'center',
+    },
+
+    arrow1: {
         color: '#BCDA00',
+        marginLeft: 200
+    },
+
+    arrow2: {
+        color: '#BCDA00',
+        marginLeft: 240
     },
 
     favoritosText1: {
         color: 'black',
-        borderBottomColor: 'black',
-        borderBottomWidth: 2,
         fontWeight: 'bold',
-        height: 70,
-        marginTop: 15,
+        marginBottom: 7
     },
 
     favoritosText2: {
         color: 'black',
-        borderBottomColor: 'black',
-        borderBottomWidth: 2,
         fontWeight: 'bold',
-        height: 70,
-        marginTop: 15,
+        marginTop: 10
     },
 
     favoritosText3: {
         color: 'black',
         fontWeight: 'bold',
-        height: 70,
-        marginTop: 15,
+        height: 30,
+        marginTop: 0,
     },
 
     outros: {

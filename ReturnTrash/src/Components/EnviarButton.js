@@ -18,7 +18,7 @@ export default EnviarButton
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 15,
+        marginTop: 5,
         backgroundColor: '#204722',
         borderRadius: 15,
         width: 170,

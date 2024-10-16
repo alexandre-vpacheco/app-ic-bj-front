@@ -2,62 +2,81 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
+//import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
+//import SairButtonDescarte from '../../Components/SairButtonDescarte';
+import QrCodeButton from '../../Components/QrCodeButton';
+import CpfButton from '../../Components/CpfButton';
+//import MenuButton from '../../Components/MenuButton';
+import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
-import MenuButtonQuemSomos from '../../Components/MenuButtonQuemSomos';
+import { useEffect } from 'react';
 
-export default function QuemSomos() {
+export default function TudoPronto() {
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
+
+    useEffect(() => {
+        // Define um temporizador para mostrar o loading antes de navegar
+        const timer = setTimeout(() => {
+          setVisible(true);  // Exibe o componente de loading
+    
+          // Navega para a próxima página após 2 segundos de loading
+          const navigateTimer = setTimeout(() => {
+            navigation.navigate('ObrigadoPorAjudar');  // Navega para "ObrigadoPorDescartar"
+          }, 2000);  // 2 segundos com o loading visível
+    
+          // Limpa o temporizador de navegação
+          return () => clearTimeout(navigateTimer);
+        }, 3000);  // Espera 3 segundos antes de exibir o loading
+    
+        // Limpa o temporizador inicial se o componente for desmontado
+        return () => clearTimeout(timer);
+      }, [navigation]);
+
+    // const voltar = () => {
+    //     console.log('Voltar clicado')
+    //     setVisible(true);
+    //     setTimeout(() => {
+    //         setVisible(false);
+    //         navigation.navigate('HomePage');
+    //         console.log('Voltamos para a HomePage')
+    //     }, 500)
+    // }
+
+    // const sair = () => {
+    //     console.log('Voltar clicado')
+    //     setVisible(true);
+    //     setTimeout(() => {
+    //         setVisible(false);
+    //         navigation.navigate('Inicial')
+    //         console.log('Voltamos para a tela inicial')
+    //     }, 500)
+    // }
 
     return (
         <>
             <View style={styles.container}>
                 <Loading visible={visible} />
                 <View style={styles.header1}>
-                    <MenuButtonQuemSomos />
+                    <MenuButtonDescarte />
                     <Image style={styles.logo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
                     }} />
                 </View>
-
                 <View style={styles.header2}>
                     <Text style={styles.txtBarra1}>                        </Text>
                     <View style={styles.title}>
-                        <Image style={styles.logoQuem} source={{
-                            uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8581ed4cb37b13fb04b4f80939f9593d5a741cd5/ReturnTrash/assets/quem.png',
+                        <Image style={styles.logoDescarte} source={{
+                            uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/9a8674ef8d1f9639a6b3f86bdf9edecc0d52d97b/ReturnTrash/assets/logoDescarte.png',
                         }} />
-                        <Text style={styles.txt}>Quem nós somos?             </Text>
+                        <Text style={styles.txt}>Quero descartar!                        </Text>
                     </View>
-                    <Text style={styles.txtBarra2}>                       </Text>
+                    <Text style={styles.txt}>    TUDO PRONTO! INCIE O DESCARTE.        </Text>
                 </View>
-
                 <View style={styles.body}>
-                    <View style={styles.box}>
-                        <Text style={styles.content}>Somos três meninas, estudantes do
-                            ensino médio que tiveram a
-                            oportunidade de participar da
-                            Iniciação Científica da nossa escola
-                            (BJMJ). E que a partir de reflexões
-                            sobre a quantidade de lixo
-                            acumulado nas ruas e rios, nós
-                            tivemos ideia da ReturnTrash.</Text>
-                    </View>
-                    <Text style={styles.missaoTitle}>Missão</Text>
-                    <View style={styles.box}>
-                        <Text style={styles.content}>Criar uma lixeira tecnológica,
-                            adaptada aos meios digitais
-                            utilizados atualmente, para amenizar
-                            os problemas causados pelos lixos.
-                            Tendo como uma maneira de
-                            estimular cada um a jogar o lixo
-                            corretamente, vamos propor que o
-                            indivíduo que faz a ação do
-                            descarte, acumule pontos que no
-                            futuro poderão lhe gerar descontos
-                            em lojas parceiras.</Text>
-                    </View>
+
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -75,15 +94,15 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
 
-    header2: {
-        marginTop: 10
-    },
-
     body: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 55
+        marginTop: 40
+    },
+
+    header2: {
+        marginTop: 35
     },
 
     title: {
@@ -91,34 +110,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 5
-    },
-
-    missaoTitle: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 19,
-        position: 'absolute',
-        left: 10,
-        top: 140,
-    },
-
-    box: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-
-    content: {
-        color: 'white',
-        backgroundColor: '#204722',
-        fontWeight: 'bold',
-        fontSize: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'justify',
-        borderRadius: 20,
-        padding: 10,
-        width: 340,
-        marginTop: 40
     },
 
     txtBarra1: {
@@ -133,17 +124,14 @@ const styles = StyleSheet.create({
         marginTop: 5,
     },
 
-    logoQuem: {
+    logoDescarte: {
         marginTop: -10,
-        width: 55,
-        height: 55,
+        width: 65,
+        height: 65,
         //alignItems: 'flex-start',
         //justifyContent: 'center',
         marginLeft: 35,
         marginBottom: -15,
-        borderRadius: 30,
-        borderColor: '#B7DA00',
-        borderWidth: 1
     },
 
     txt: {
@@ -154,43 +142,44 @@ const styles = StyleSheet.create({
         // alignItems: 'center',
         //justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: 35
+        marginLeft: 30,
         //marginBottom: -15,
     },
 
     txt1: {
-        marginTop: 5,
+        marginTop: 15,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         //alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -170,
+        marginLeft: -150,
         //marginBottom: -15,
     },
 
     txt2: {
-        marginTop: 5,
-        fontWeight: 'bold',
+        //marginTop: 2,
+        //fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
-        //alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        //justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -190,
+        marginLeft: 20,
+        marginRight: 10,
         //marginBottom: -15,
     },
 
     txt3: {
-        marginTop: 15,
+        marginTop: 55,
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -110,
+        marginLeft: 5,
         //marginBottom: -15,
     },
 
@@ -198,14 +187,14 @@ const styles = StyleSheet.create({
         marginTop: 12,
         width: 210,
         height: 50,
-        marginLeft: 8,
+        //marginLeft:-15,
         //aspectRatio: 8.0,
     },
 
     recLogo: {
-        marginTop: 12,
-        width: 120,
-        height: 120,
+        marginTop: -30,
+        width: 150,
+        height: 150,
     },
 
     container: {
@@ -216,10 +205,14 @@ const styles = StyleSheet.create({
     },
 
     buttons: {
-        marginTop: 35,
+        marginTop: 25,
         flexDirection: 'row',
         justifyContent: 'center',
         //alignItems: 'space-evenly',
+    },
+
+    preFooter: {
+        flexDirection: 'row',
     },
 
     footer: {
@@ -227,6 +220,6 @@ const styles = StyleSheet.create({
         marginTop: 100,
         width: 450,
         height: 120,
-    },
+    }
 
 });

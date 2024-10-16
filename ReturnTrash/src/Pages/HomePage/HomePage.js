@@ -60,6 +60,7 @@ export default function HomePage() {
                     <UsarPontosButton onpress={pontos} />
                     <FaleConoscoButton onpress={contato} />
                     <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
+                    <Text style={styles.nDescastesTxt}>Nº de descartes do dia: 5</Text>
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -170,6 +171,15 @@ const styles = StyleSheet.create({
         color: 'white',
         marginTop: 50,
         marginLeft: -60,
+        fontWeight: 'bold',
+    },
+
+    nDescastesTxt: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        color: 'white',
+        marginTop: 20,
+        marginLeft: -85,
         fontWeight: 'bold',
     },
 

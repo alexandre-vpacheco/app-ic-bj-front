@@ -29,7 +29,7 @@ export default function Parceiras() {
                         <Image style={styles.logoParceiras} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/8581ed4cb37b13fb04b4f80939f9593d5a741cd5/ReturnTrash/assets/parceiras.png',
                         }} />
-                        <Text style={styles.txt}>Conheça nossas parceiras!                             </Text>
+                        <Text style={styles.txt}>Conheça nossas parceiras!    </Text>
                     </View>
                     <Text style={styles.txtBarra2}>                       </Text>
                 </View>
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
         marginTop: 12,
         width: 210,
         height: 50,
-        //marginLeft:-15,
+        marginLeft: 20,
         //aspectRatio: 8.0,
     },
 

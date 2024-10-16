@@ -18,7 +18,7 @@ export default EntrarButton
 const styles = StyleSheet.create({
 
     button: {
-        marginTop: 15,
+        marginTop: -40,
         backgroundColor: '#F5F6F6',
         borderRadius: 35,
         width: 170,
