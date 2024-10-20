@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, Image, Alert, FlatList, TouchableOpacity } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
-//import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
-//import SairButtonDescarte from '../../Components/SairButtonDescarte';
-import QrCodeButton from '../../Components/QrCodeButton';
-import CpfButton from '../../Components/CpfButton';
-//import MenuButton from '../../Components/MenuButton';
 import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
 import { Button } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function TipoMaterial() {
 
@@ -19,30 +15,57 @@ export default function TipoMaterial() {
 
     const handleAvancar = () => {
 
-            navigation.navigate('TudoPronto');
-            //Alert.alert('CPF Válido', `CPF ${cpf} confirmado!`);
+        navigation.navigate('TudoPronto');
+        //Alert.alert('CPF Válido', `CPF ${cpf} confirmado!`);
 
     };
 
-    // const voltar = () => {
-    //     console.log('Voltar clicado')
-    //     setVisible(true);
-    //     setTimeout(() => {
-    //         setVisible(false);
-    //         navigation.navigate('HomePage');
-    //         console.log('Voltamos para a HomePage')
-    //     }, 500)
-    // }
+    const items = [
+        { id: '1', name: 'Tampinha de Plástico' },
+        { id: '2', name: 'Tampinha de Aço' },
+        { id: '3', name: 'Lacre de Latinha' },
+        { id: '4', name: 'Latinha' },
+        { id: '5', name: 'Garrafa Pet' },
 
-    // const sair = () => {
-    //     console.log('Voltar clicado')
-    //     setVisible(true);
-    //     setTimeout(() => {
-    //         setVisible(false);
-    //         navigation.navigate('Inicial')
-    //         console.log('Voltamos para a tela inicial')
-    //     }, 500)
-    // }
+    ];
+
+    const [quantities, setQuantities] = useState({});
+
+    const saveQuantities = async (newQuantities) => {
+        try {
+            await AsyncStorage.setItem('quantities', JSON.stringify(newQuantities));
+        } catch (error) {
+            console.log('Erro ao salvar as quantidades:', error);
+        }
+
+    }
+
+    const increaseQuantity = (id) => {
+        const newQuantities = { ...quantities, [id]: (quantities[id] || 0) + 1 };
+        setQuantities(newQuantities);
+        saveQuantities(newQuantities);
+    };
+
+    const decreaseQuantity = (id) => {
+        const newQuantities = { ...quantities, [id]: Math.max((quantities[id] || 0) - 1, 0) };
+        setQuantities(newQuantities);
+        saveQuantities(newQuantities);
+    };
+
+    const renderItem = ({ item }) => (
+        <View style={styles.itemContainer}>
+            <Text style={styles.itemName}>{item.name}</Text>
+            <View style={styles.quantityControls}>
+                <TouchableOpacity onPress={() => decreaseQuantity(item.id)} style={styles.button}>
+                    <Text style={styles.buttonText}>-</Text>
+                </TouchableOpacity>
+                <Text style={styles.quantityText}>{quantities[item.id] || 0}</Text>
+                <TouchableOpacity onPress={() => increaseQuantity(item.id)} style={styles.button}>
+                    <Text style={styles.buttonText}>+</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
 
     return (
         <>
@@ -62,12 +85,18 @@ export default function TipoMaterial() {
                         }} />
                         <Text style={styles.txt}>Quero descartar!                        </Text>
                     </View>
-                    <Text style={styles.txt}>VOCÊ VINCULOU COM SUCESSO À LIXEIRA! </Text>
-                    <Text style={styles.txt}>AGORA SELECIONE O TIPO E QUANTIDADE DO MATERIAL QUE DESEJA DESCARTAR</Text>
-                    <Button title="Avançar" onPress={handleAvancar} />
+                    <Text style={styles.txtBarra2}>                       </Text>
                 </View>
                 <View style={styles.body}>
-
+                    <Text style={styles.txt1}>Você vinculou com sucesso à lixeira!</Text>
+                    <Text style={styles.txt1}>Selecione o que você irá descartar</Text>
+                    <FlatList
+                        data={items}
+                        renderItem={renderItem}
+                        keyExtractor={(item) => item.id}
+                        style={styles.flatlist}
+                    />
+                    <Button title="Pronto" onPress={handleAvancar} />
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -78,6 +107,17 @@ export default function TipoMaterial() {
 }
 
 const styles = StyleSheet.create({
+
+    flatlist: {
+        marginTop: 20,
+        marginBottom:10,
+        backgroundColor: 'white',
+        width: 350,
+        borderRadius: 10,
+        borderWidth: 5,
+        padding: 10,
+
+    },
 
     header1: {
         marginTop: 35,
@@ -138,14 +178,14 @@ const styles = StyleSheet.create({
     },
 
     txt1: {
-        marginTop: 15,
-        fontWeight: 'bold',
-        fontSize: 19,
+        marginTop: 5,
+        //fontWeight: 'bold',
+        fontSize: 16,
         color: 'white',
-        //alignItems: 'center',
+        alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -150,
+        marginLeft: 15,
         //marginBottom: -15,
     },
 

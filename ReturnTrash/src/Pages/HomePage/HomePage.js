@@ -15,6 +15,10 @@ export default function HomePage() {
 
     const { user } = useUser();
 
+    //const { pontos } = useUser();
+
+    // const {descartes } = useUser();
+
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
@@ -59,8 +63,8 @@ export default function HomePage() {
                     <DescartarButton onpress={descarte} />
                     <UsarPontosButton onpress={pontos} />
                     <FaleConoscoButton onpress={contato} />
-                    <Text style={styles.saldoTxt}>Saldo disponível: 50 Pontos</Text>
-                    <Text style={styles.nDescastesTxt}>Nº de descartes do dia: 5</Text>
+                    <Text style={styles.saldoTxt}>Saldo disponível: 45 {user.pontos} pontos</Text>
+                    <Text style={styles.nDescastesTxt}>Nº de descartes: 3{user.descartes}</Text>
                 </View>
                 <View style={styles.footer}>
                     <Footer />

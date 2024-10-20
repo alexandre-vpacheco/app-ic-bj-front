@@ -43,8 +43,7 @@ export default function Descarte() {
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
-            navigation.navigate('HomePage');
-            console.log('Voltamos para a HomePage')
+            navigation.navigate('HomePage'); 
         }, 500)
     }
 
@@ -54,7 +53,6 @@ export default function Descarte() {
         setTimeout(() => {
             setVisible(false);
             navigation.navigate('Inicial')
-            console.log('Voltamos para a tela inicial')
         }, 500)
     }
 
@@ -80,10 +78,6 @@ export default function Descarte() {
                 </View>
                 <View style={styles.body}>
 
-                    {/* <Text style={styles.txt1}>Registrar descarte</Text> 
-                    <QrCodeButton onpress={openCamera} />
-                    <Text style={styles.txt2}>Vincular CPF</Text>
-                    <CpfButton onpress={cpfPage} /> */}
                     <View >
                         <Image style={styles.recLogo} source={{
                             uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/f788fede015eab7590c9ffd34f770f4462c67d28/ReturnTrash/assets/recLogo.png',
@@ -92,11 +86,8 @@ export default function Descarte() {
                     </View>
                     <Text style={styles.txt2}>Para vincular com a lixeira, digite o código presente nela:</Text>
 
-                    <CodeInput />
-                    {/* <View style={styles.buttons}>
-                        <VoltarButtonDescarte onpress={voltar} />
-                        <SairButtonDescarte onpress={sair} />
-                    </View> */}
+                    <CodeInput/>
+
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -116,9 +107,12 @@ const styles = StyleSheet.create({
 
     body: {
         flex: 1,
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40
+        marginTop: 50,
+        height: 20
+        //paddingVertical: -10,
     },
 
     header2: {
@@ -136,6 +130,7 @@ const styles = StyleSheet.create({
         borderTopWidth: 2,
         borderTopColor: '#8F7975',
         marginTop: 15,
+        //width: '100%'
     },
 
     txtBarra2: {
@@ -179,16 +174,15 @@ const styles = StyleSheet.create({
     },
 
     txt2: {
-        //marginTop: 2,
-        //fontWeight: 'bold',
+        fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
         // alignItems: 'center',
         //justifyContent: 'center',
-        //marginTop: 27,
+        marginTop: 10,
         marginLeft: 20,
         marginRight: 10,
-        //marginBottom: -15,
+        //marginBottom: 25,
     },
 
     txt3: {
@@ -212,9 +206,9 @@ const styles = StyleSheet.create({
     },
 
     recLogo: {
-        marginTop: -30,
-        width: 150,
-        height: 150,
+        marginTop: 30,
+        width: 140,
+        height: 140,
     },
 
     container: {

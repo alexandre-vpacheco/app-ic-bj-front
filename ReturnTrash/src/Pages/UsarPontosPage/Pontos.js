@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Alert, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../../Components/Footer/Footer';
@@ -35,12 +35,21 @@ export default function Pontos() {
                 </View>
 
                 <View style={styles.body}>
+
                     <View style={styles.estabelecimentos}>
                         <Text style={styles.bodyText1}>Estabelecimentos</Text>
-                        <TextInput
-                            style={styles.input}
-                            placeholder="Supermercado, loja, atacadão"
-                        />
+
+                        <KeyboardAvoidingView
+                              style={styles.container}
+                              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}   
+                        >
+                            <TextInput
+                                style={styles.input}
+                                placeholder="Supermercado, loja, atacadão"
+                            />
+
+                        </KeyboardAvoidingView>
+
                     </View>
                     <View style={styles.favoritos}>
                         <View style={styles.favoritosTitle}>
@@ -52,7 +61,7 @@ export default function Pontos() {
                         <View style={styles.favoritosBox}>
                             <View style={styles.favoritosBox2}>
                                 <Text style={styles.favoritosText1}>   Pão de Açúcar                                          {'\u003E'}
-                                    
+
                                 </Text>
                                 <Text style={styles.line}></Text>
                                 <Text style={styles.favoritosText2}>   Multimix                                                    {'\u003E'}
@@ -65,7 +74,7 @@ export default function Pontos() {
                         <View style={styles.outros2}>
                             <View style={styles.saldoBox}>
                                 <Text style={styles.saldoText}>Seu saldo: </Text>
-                                <Text style={styles.saldoText}>R$ 400,00</Text>
+                                <Text style={styles.saldoText}>45 pontos</Text>
                             </View>
                             <TouchableOpacity style={styles.historicoBox}><Text style={styles.saldoText}>Histórico</Text></TouchableOpacity>
                         </View>
@@ -124,7 +133,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'grey',
+        color: 'black',
     },
 
     estabelecimentos: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, Alert, KeyboardAvoidingView } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
 //import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
@@ -11,21 +11,36 @@ import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
 import { Button } from 'react-native';
 import { TextInput } from 'react-native';
+import { useEffect } from 'react';
+import { useRef } from 'react';
+
 
 export default function ConfirmaCPF() {
+
+    const [cpf, setCpf] = useState('');
+
+    const inputRef = useRef(null);
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
 
-    const [cpf, setCpf] = useState('');
+    useEffect(() => {
+        // Verifica se o CPF tem 11 dígitos e navega para a próxima página
+        if (cpf.length === 3) {
+            setVisible(true)
+            setTimeout(() => {
+                navigation.navigate('TipoMaterial');
+            }, 500); // Aguarda 0.5 segundo antes de navegar
+        }
+    }, [cpf]);
 
     const handleAvancar = () => {
 
         navigation.navigate('TipoMaterial');
         // if (cpf.length === 3) {
 
-            
+
         //     //Alert.alert('CPF Válido', `CPF ${cpf} confirmado!`);
 
         // } else {
@@ -72,18 +87,28 @@ export default function ConfirmaCPF() {
                         }} />
                         <Text style={styles.txt}>Quero descartar!                        </Text>
                     </View>
-                    <Text style={styles.txt}>    CONFIRME SEU CPF                   </Text>
-                    <TextInput
-                        style={styles.input}
-                        keyboardType="numeric"
-                        maxLength={11} // Limita o CPF a 11 dígitos
-                        placeholder="Digite seu CPF"
-                        value={cpf}
-                        onChangeText={setCpf}
-                    />
-                    <Button title="Avançar" onPress={handleAvancar} />
+                    <Text style={styles.txtBarra2}>                       </Text>
                 </View>
                 <View style={styles.body}>
+
+                <Text style={styles.txt}>Confirme seu CPF:</Text>
+
+                    <KeyboardAvoidingView
+                        style={styles.cpfBox}
+                        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+                    >
+                        <View>
+                            <TextInput
+                                ref={inputRef}
+                                style={styles.input}
+                                value={cpf}
+                                onChangeText={setCpf}
+                                keyboardType="numeric"
+                                maxLength={11}
+                                placeholder="                                 "
+                            />
+                        </View>
+                    </KeyboardAvoidingView>
 
                 </View>
                 <View style={styles.footer}>
@@ -95,6 +120,24 @@ export default function ConfirmaCPF() {
 }
 
 const styles = StyleSheet.create({
+
+    input: {
+        
+        
+    },
+
+    cpfBox: {
+        marginTop: 40,
+        //flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        borderRadius: 10,
+        borderWidth: 15,
+        borderColor: '#204722',
+        height: 80,
+        length: 300,
+    },
 
     header1: {
         marginTop: 35,
@@ -143,7 +186,7 @@ const styles = StyleSheet.create({
     },
 
     txt: {
-        //marginTop: 2,
+        marginTop: 20,
         fontWeight: 'bold',
         fontSize: 21,
         color: 'white',

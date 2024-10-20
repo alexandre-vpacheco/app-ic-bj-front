@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
-//import VoltarButtonDescarte from '../../Components/VoltarButtonDescarte';
-//import SairButtonDescarte from '../../Components/SairButtonDescarte';
-import QrCodeButton from '../../Components/QrCodeButton';
-import CpfButton from '../../Components/CpfButton';
-//import MenuButton from '../../Components/MenuButton';
 import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
+import DescartarNovamenteButton from '../../Components/DescartarNovamenteButton';
+import HomeButton from '../../Components/HomeButton';
+import UsarPontosButton2 from '../../Components/UsarPontosButton2';
 
 export default function ObrigadoPorAjudar() {
 
@@ -16,23 +14,27 @@ export default function ObrigadoPorAjudar() {
 
     const navigation = useNavigation();
 
-    const voltar = () => {
-        console.log('Voltar clicado')
+    const home = () => {
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
-            navigation.navigate('HomePage');
-            console.log('Voltamos para a HomePage')
+            navigation.navigate('HomePage')
         }, 500)
     }
 
-    const sair = () => {
-        console.log('Voltar clicado')
+    const descarte = () => {
         setVisible(true);
         setTimeout(() => {
             setVisible(false);
-            navigation.navigate('Inicial')
-            console.log('Voltamos para a tela inicial')
+            navigation.navigate('Descarte')
+        }, 500)
+    }
+
+    const usarPontos = () => {
+        setVisible(true);
+        setTimeout(() => {
+            setVisible(false);
+            navigation.navigate('Pontos')
         }, 500)
     }
 
@@ -54,14 +56,14 @@ export default function ObrigadoPorAjudar() {
                         }} />
                         <Text style={styles.txt}>Quero descartar!                        </Text>
                     </View>
-                    <Text style={styles.txt}>     OBRIAGDO POR AJUDAR O PLANETA HOJE!                </Text>
-                    <Text style={styles.txt}>     TOTAL DE PONTOS ACUMULADOS: 100               </Text>
-                    <Text style={styles.txt}>                                                </Text>
-                    <Text style={styles.txt}>                                                </Text>
-                    <Text style={styles.txt}>   DESCARTAR NOVAMENTE,   HOME ou USAR MEUS PONTOS </Text>
+                    <Text style={styles.txtBarra2}>                       </Text>
                 </View>
                 <View style={styles.body}>
-
+                    <Text style={styles.txt1}>     Obrigado por ajudar o planeta hoje!                </Text>
+                    <Text style={styles.txt1}>     Total de pontos acumulados: 45               </Text>
+                    <HomeButton onpress={home} />
+                    <DescartarNovamenteButton onpress={descarte}/>
+                    <UsarPontosButton2 onpress={usarPontos}/>
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -139,7 +141,7 @@ const styles = StyleSheet.create({
         //alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -150,
+        marginLeft: 10,
         //marginBottom: -15,
     },
 

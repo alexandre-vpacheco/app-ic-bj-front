@@ -10,6 +10,7 @@ import CpfButton from '../../Components/CpfButton';
 import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
 import { useEffect } from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function TudoPronto() {
 
@@ -20,20 +21,20 @@ export default function TudoPronto() {
     useEffect(() => {
         // Define um temporizador para mostrar o loading antes de navegar
         const timer = setTimeout(() => {
-          setVisible(true);  // Exibe o componente de loading
-    
-          // Navega para a próxima página após 2 segundos de loading
-          const navigateTimer = setTimeout(() => {
-            navigation.navigate('ObrigadoPorAjudar');  // Navega para "ObrigadoPorDescartar"
-          }, 2000);  // 2 segundos com o loading visível
-    
-          // Limpa o temporizador de navegação
-          return () => clearTimeout(navigateTimer);
+            setVisible(true);  // Exibe o componente de loading
+
+            // Navega para a próxima página após 2 segundos de loading
+            const navigateTimer = setTimeout(() => {
+                navigation.navigate('ObrigadoPorAjudar');  // Navega para "ObrigadoPorDescartar"
+            }, 2000);  // 2 segundos com o loading visível
+
+            // Limpa o temporizador de navegação
+            return () => clearTimeout(navigateTimer);
         }, 3000);  // Espera 3 segundos antes de exibir o loading
-    
+
         // Limpa o temporizador inicial se o componente for desmontado
         return () => clearTimeout(timer);
-      }, [navigation]);
+    }, [navigation]);
 
     // const voltar = () => {
     //     console.log('Voltar clicado')
@@ -73,10 +74,12 @@ export default function TudoPronto() {
                         }} />
                         <Text style={styles.txt}>Quero descartar!                        </Text>
                     </View>
-                    <Text style={styles.txt}>    TUDO PRONTO! INCIE O DESCARTE.        </Text>
+                    <Text style={styles.txtBarra2}>                       </Text>
                 </View>
                 <View style={styles.body}>
-
+                    <Text style={styles.txt1}>Tudo pronto!</Text>
+                    <Text style={styles.txt1}>INCIE O DESCARTE.</Text>
+                    <Icon name="trash" size={80} color="white" />
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -151,10 +154,10 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 19,
         color: 'white',
-        //alignItems: 'center',
+        alignItems: 'center',
         justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: -150,
+        marginLeft: 50,
         //marginBottom: -15,
     },
 
