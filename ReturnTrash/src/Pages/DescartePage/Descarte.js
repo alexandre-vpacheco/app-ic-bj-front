@@ -22,22 +22,6 @@ export default function Descarte() {
         // navigation.navigate('CameraScreen'); 
     };
 
-    // const qrCodePage = () => {
-    //     setVisible(true);
-    //     setTimeout(() => {
-    //         setVisible(false);
-    //         navigation.navigate('QrCodePage')
-    //     }, 500)
-    // }
-
-    const cpfPage = () => {
-        // setVisible(true);
-        // setTimeout(() => {
-        //     setVisible(false);
-        //     navigation.navigate('CpfPage')
-        // }, 500)
-    }
-
     const voltar = () => {
         console.log('Voltar clicado')
         setVisible(true);

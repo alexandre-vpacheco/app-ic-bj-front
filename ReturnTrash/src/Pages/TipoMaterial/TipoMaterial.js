@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { StyleSheet, Text, View, Image, Alert, FlatList, TouchableOpacity } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
@@ -6,6 +6,7 @@ import MenuButtonDescarte from '../../Components/MenuButtonDescarte';
 import Footer from '../../Components/Footer/Footer';
 import { Button } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { PointsContext } from '../../Context/PointsContext';
 
 export default function TipoMaterial() {
 
@@ -13,59 +14,78 @@ export default function TipoMaterial() {
 
     const navigation = useNavigation();
 
-    const handleAvancar = () => {
+    // const handleAvancar = () => {
 
+    //     navigation.navigate('TudoPronto');
+    //     
+
+    // };
+
+    // const items = [
+    //     { id: '1', name: 'Tampinha de Plástico' },
+    //     { id: '2', name: 'Tampinha de Aço' },
+    //     { id: '3', name: 'Lacre de Latinha' },
+    //     { id: '4', name: 'Latinha' },
+    //     { id: '5', name: 'Garrafa Pet' },
+
+    // ];
+
+    // const [quantities, setQuantities] = useState({});
+
+    // const saveQuantities = async (newQuantities) => {
+    //     try {
+    //         await AsyncStorage.setItem('quantities', JSON.stringify(newQuantities));
+    //     } catch (error) {
+    //         console.log('Erro ao salvar as quantidades:', error);
+    //     }
+
+    // }
+
+    // const increaseQuantity = (id) => {
+    //     const newQuantities = { ...quantities, [id]: (quantities[id] || 0) + 1 };
+    //     setQuantities(newQuantities);
+    //     saveQuantities(newQuantities);
+    // };
+
+    // const decreaseQuantity = (id) => {
+    //     const newQuantities = { ...quantities, [id]: Math.max((quantities[id] || 0) - 1, 0) };
+    //     setQuantities(newQuantities);
+    //     saveQuantities(newQuantities);
+    // };
+
+    // const renderItem = ({ item }) => (
+    //     <View style={styles.itemContainer}>
+    //         <Text style={styles.itemName}>{item.name}</Text>
+    //         <View style={styles.quantityControls}>
+    //             <TouchableOpacity onPress={() => decreaseQuantity(item.id)} style={styles.button}>
+    //                 <Text style={styles.buttonText}>-</Text>
+    //             </TouchableOpacity>
+    //             <Text style={styles.quantityText}>{quantities[item.id] || 0}</Text>
+    //             <TouchableOpacity onPress={() => increaseQuantity(item.id)} style={styles.button}>
+    //                 <Text style={styles.buttonText}>+</Text>
+    //             </TouchableOpacity>
+    //         </View>
+    //     </View>
+    // );
+
+    const [tampinhas, setTampinhas] = useState(0);
+    const [latinhas, setLatinhas] = useState(0);
+
+    const { addPoints } = useContext(PointsContext);
+
+    const aumentarTampinhas = () => setTampinhas(tampinhas + 1);
+    const diminuirTampinhas = () => setTampinhas(tampinhas > 0 ? tampinhas - 1 : 0);
+
+    const aumentarLatinhas = () => setLatinhas(latinhas + 1);
+    const diminuirLatinhas = () => setLatinhas(latinhas > 0 ? latinhas - 1 : 0);
+
+    const handlePronto = () => {
+        const totalItens = tampinhas + latinhas; // Soma tampinhas e latinhas
+        addPoints(totalItens); // Adiciona os pontos ao total
+        alert(`Você irá ganhar ${totalItens} pontos!`);
         navigation.navigate('TudoPronto');
-        //Alert.alert('CPF Válido', `CPF ${cpf} confirmado!`);
-
+        // Redireciona para outra página ou realiza outras ações
     };
-
-    const items = [
-        { id: '1', name: 'Tampinha de Plástico' },
-        { id: '2', name: 'Tampinha de Aço' },
-        { id: '3', name: 'Lacre de Latinha' },
-        { id: '4', name: 'Latinha' },
-        { id: '5', name: 'Garrafa Pet' },
-
-    ];
-
-    const [quantities, setQuantities] = useState({});
-
-    const saveQuantities = async (newQuantities) => {
-        try {
-            await AsyncStorage.setItem('quantities', JSON.stringify(newQuantities));
-        } catch (error) {
-            console.log('Erro ao salvar as quantidades:', error);
-        }
-
-    }
-
-    const increaseQuantity = (id) => {
-        const newQuantities = { ...quantities, [id]: (quantities[id] || 0) + 1 };
-        setQuantities(newQuantities);
-        saveQuantities(newQuantities);
-    };
-
-    const decreaseQuantity = (id) => {
-        const newQuantities = { ...quantities, [id]: Math.max((quantities[id] || 0) - 1, 0) };
-        setQuantities(newQuantities);
-        saveQuantities(newQuantities);
-    };
-
-    const renderItem = ({ item }) => (
-        <View style={styles.itemContainer}>
-            <Text style={styles.itemName}>{item.name}</Text>
-            <View style={styles.quantityControls}>
-                <TouchableOpacity onPress={() => decreaseQuantity(item.id)} style={styles.button}>
-                    <Text style={styles.buttonText}>-</Text>
-                </TouchableOpacity>
-                <Text style={styles.quantityText}>{quantities[item.id] || 0}</Text>
-                <TouchableOpacity onPress={() => increaseQuantity(item.id)} style={styles.button}>
-                    <Text style={styles.buttonText}>+</Text>
-                </TouchableOpacity>
-            </View>
-        </View>
-    );
 
     return (
         <>
@@ -90,13 +110,41 @@ export default function TipoMaterial() {
                 <View style={styles.body}>
                     <Text style={styles.txt1}>Você vinculou com sucesso à lixeira!</Text>
                     <Text style={styles.txt1}>Selecione o que você irá descartar</Text>
-                    <FlatList
+                    {/* <FlatList
                         data={items}
                         renderItem={renderItem}
                         keyExtractor={(item) => item.id}
                         style={styles.flatlist}
                     />
-                    <Button title="Pronto" onPress={handleAvancar} />
+                    <View style={styles.buttonContainer}>
+                        <Button
+                            width="400"
+                            color="#204722"
+                            title="Pronto" onPress={handleAvancar}
+                        />
+                    </View> */}
+
+                    {/* Tampinhas */}
+                    <View >
+                        <Text style={styles.txt1}>Tampinhas: {tampinhas}</Text>
+                        <View style={styles.buttons}>
+                            <Button title="-" onPress={diminuirTampinhas} />
+                            <Button title="+" onPress={aumentarTampinhas} />
+                        </View>
+                    </View>
+
+                    {/* Latinhas */}
+                    <View >
+                        <Text style={styles.txt1}>Latinhas: {latinhas}</Text>
+                        <View style={styles.buttons}>
+                            <Button title="-" onPress={diminuirLatinhas} />
+                            <Button title="+" onPress={aumentarLatinhas} />
+                        </View>
+                    </View>
+
+                    {/* Botão Pronto */}
+                    <Button title="Pronto" onPress={handlePronto} />
+
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -108,9 +156,15 @@ export default function TipoMaterial() {
 
 const styles = StyleSheet.create({
 
+    buttonContainer: {
+        // marginTop: 15,
+        width: 200,  // Largura desejada
+        height: 60,  // Altura desejada
+    },
+
     flatlist: {
         marginTop: 20,
-        marginBottom:10,
+        marginBottom: 10,
         backgroundColor: 'white',
         width: 350,
         borderRadius: 10,

@@ -78,8 +78,8 @@ export default function TudoPronto() {
                 </View>
                 <View style={styles.body}>
                     <Text style={styles.txt1}>Tudo pronto!</Text>
-                    <Text style={styles.txt1}>INCIE O DESCARTE.</Text>
-                    <Icon name="trash" size={80} color="white" />
+                    <Text style={styles.txt1}>INCIE O DESCARTE</Text>
+                    <Icon name="trash" size={180} color="white"/>
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -99,9 +99,11 @@ const styles = StyleSheet.create({
 
     body: {
         flex: 1,
+        flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 40
+        marginTop: 70,
+        gap: 20
     },
 
     header2: {
@@ -152,12 +154,12 @@ const styles = StyleSheet.create({
     txt1: {
         marginTop: 15,
         fontWeight: 'bold',
-        fontSize: 19,
+        fontSize: 25,
         color: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
+        //alignItems: 'center',
+        //justifyContent: 'center',
         //marginTop: 27,
-        marginLeft: 50,
+        //marginLeft: 50,
         //marginBottom: -15,
     },
 

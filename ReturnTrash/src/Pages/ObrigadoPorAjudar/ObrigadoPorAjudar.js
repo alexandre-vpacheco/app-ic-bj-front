@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Image, Alert } from 'react-native';
 import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
@@ -7,12 +7,15 @@ import Footer from '../../Components/Footer/Footer';
 import DescartarNovamenteButton from '../../Components/DescartarNovamenteButton';
 import HomeButton from '../../Components/HomeButton';
 import UsarPontosButton2 from '../../Components/UsarPontosButton2';
+import { PointsContext } from '../../Context/PointsContext';
 
 export default function ObrigadoPorAjudar() {
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
+
+    const { totalPoints } = useContext(PointsContext);
 
     const home = () => {
         setVisible(true);
@@ -60,10 +63,13 @@ export default function ObrigadoPorAjudar() {
                 </View>
                 <View style={styles.body}>
                     <Text style={styles.txt1}>     Obrigado por ajudar o planeta hoje!                </Text>
-                    <Text style={styles.txt1}>     Total de pontos acumulados: 45               </Text>
+
+                    <Text style={styles.txt1}>Total de Pontos: {totalPoints}</Text>
+
+                    {/* <Text style={styles.txt1}>     Total de pontos acumulados: 45               </Text> */}
                     <HomeButton onpress={home} />
-                    <DescartarNovamenteButton onpress={descarte}/>
-                    <UsarPontosButton2 onpress={usarPontos}/>
+                    <DescartarNovamenteButton onpress={descarte} />
+                    <UsarPontosButton2 onpress={usarPontos} />
                 </View>
                 <View style={styles.footer}>
                     <Footer />

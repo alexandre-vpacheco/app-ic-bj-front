@@ -35,7 +35,7 @@ const CodeInput = () => {
           setVisible(false); // Esconde o "loading" após 2 segundos
 
           // Navega para a página "TipoMaterial"
-          navigation.navigate('ConfirmaCPF');
+          navigation.navigate('TipoMaterial');
         }, 2000);
       }
     }

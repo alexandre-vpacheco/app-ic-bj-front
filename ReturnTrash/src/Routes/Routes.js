@@ -56,11 +56,11 @@ export default function Routes() {
                 options={{ headerShown: false }}
             />
 
-            <Stack.Screen
+            {/* <Stack.Screen
                 name="ConfirmaCPF"
                 component={ConfirmaCPF}
                 options={{ headerShown: false }}
-            />
+            /> */}
 
             <Stack.Screen
                 name="TipoMaterial"

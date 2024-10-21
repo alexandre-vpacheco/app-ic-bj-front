@@ -14,7 +14,7 @@ export default function Cadastro() {
     const [email, setEmail] = useState('');
     const [confirmarEmail, setConfirmarEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [cpf, setCpf] = useState('');
+    //const [cpf, setCpf] = useState('');
 
     const [visible, setVisible] = useState(false);
 
@@ -22,7 +22,7 @@ export default function Cadastro() {
 
     const handleCadastro = async () => {
 
-        if (nome === '' || username === '' || email === '' || password === '' || cpf === '') {
+        if (nome === '' || username === '' || email === '' || password === '') {
             Alert.alert('Aviso', 'Todos os campos devem estar preenchidos!');
             return;
         }
@@ -32,7 +32,7 @@ export default function Cadastro() {
             return;
         }
 
-        const url = "https://app-ic-bj-back-production.up.railway.app/api/auth/register";
+        const url = "https://app-ic-bj-back-main-production.up.railway.app/api/auth/register";
         //const url = "localhost:5000/api/auth/register";
 
         const dadosUsuario = {
@@ -40,7 +40,6 @@ export default function Cadastro() {
             username: username,
             emails: email,
             password: password,
-            cpf: cpf,
         };
 
         try {
@@ -89,18 +88,21 @@ export default function Cadastro() {
 
                     <TextInput
                         placeholder='Nome:'
+                        placeholderTextColor="#FFFFFF"
                         style={styles.input}
                         onChangeText={setNome}
                     />
 
                     <TextInput
                         placeholder='Username:'
+                        placeholderTextColor="#FFFFFF"
                         style={styles.input}
                         onChangeText={setUsername}
                     />
 
                     <TextInput
                         placeholder='E-mail:'
+                        placeholderTextColor="#FFFFFF"
                         style={styles.input}
                         onChangeText={setEmail}
                         keyboardType="email-address"
@@ -108,19 +110,22 @@ export default function Cadastro() {
 
                     <TextInput
                         placeholder='Confirmar E-mail:'
+                        placeholderTextColor="#FFFFFF"
                         style={styles.input}
                         onChangeText={setConfirmarEmail}
                         keyboardType="email-address"
                     />
 
-                    <TextInput
+                    {/* <TextInput
                         placeholder='CPF:'
+                        placeholderTextColor="#FFFFFF"
                         style={styles.input}
                         onChangeText={setCpf}
-                    />
+                    /> */}
 
                     <TextInput
                         placeholder='Senha:'
+                        placeholderTextColor="#FFFFFF"
                         style={styles.input}
                         onChangeText={setPassword}
                         secureTextEntry
@@ -146,7 +151,8 @@ const styles = StyleSheet.create({
     },
 
     body: {
-        marginTop: 130
+        marginTop: 130,
+        color: '#FFFFFF'
     },
 
     input: {
@@ -154,12 +160,12 @@ const styles = StyleSheet.create({
         height: 60,
         width: 'auto',
         borderWidth: 1,
-        borderColor: 'white',
-        shadowColor: 'black',
-        color: 'black',
+        borderColor: '#FFFFFF',
+        shadowColor: '#FFFFFF',
+        color: '#ffff',
         marginBottom: 10,
         padding: 10,
-        borderRadius: 30
+        borderRadius: 20
     },
 
     buttonsBox: {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, Image, Modal, TouchableOpacity } from 'react-native';
 import DescartarButton from '../../Components/DescartarButton';
 import UsarPontosButton from '../../Components/UsarPontosButton';
@@ -10,10 +10,15 @@ import MenuButton from '../../Components/MenuButton';
 import { useUser } from '../../Context/UserContext';
 import Footer from '../../Components/Footer/Footer';
 //import MenuLateral from '../../Components/MenuLateral';
+import { PointsContext } from '../../Context/PointsContext';
 
 export default function HomePage() {
 
     const { user } = useUser();
+
+    const { totalPoints } = useContext(PointsContext);
+
+    const { totalDescartes } = useContext(PointsContext);
 
     //const { pontos } = useUser();
 
@@ -63,8 +68,10 @@ export default function HomePage() {
                     <DescartarButton onpress={descarte} />
                     <UsarPontosButton onpress={pontos} />
                     <FaleConoscoButton onpress={contato} />
-                    <Text style={styles.saldoTxt}>Saldo disponível: 45 {user.pontos} pontos</Text>
-                    <Text style={styles.nDescastesTxt}>Nº de descartes: 3{user.descartes}</Text>
+
+                    <Text style={styles.saldoTxt}>Saldo disponível: {totalPoints} {user.pontos} pontos</Text>
+                    <Text style={styles.nDescastesTxt}>Nº de descartes: {totalDescartes}{user.descartes}</Text>
+
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -183,7 +190,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         color: 'white',
         marginTop: 20,
-        marginLeft: -85,
+        marginLeft: -145,
         fontWeight: 'bold',
     },
 
