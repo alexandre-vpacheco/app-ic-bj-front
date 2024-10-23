@@ -25,8 +25,11 @@
     "android": {
       "icon": "./assets/androidIcon.png",
       "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCvZdBVoQ98dM5NiSIkpC0ZTj3KleZyR_4"
+        },
         "permissions": [
-          "INTERNET"
+          "INTERNET","ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION","READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE"
         ],
         "package": "returntrash",
         "versionCode": 2,

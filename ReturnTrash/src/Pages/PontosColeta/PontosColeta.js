@@ -5,12 +5,22 @@ import { useNavigation } from '@react-navigation/native';
 import Footer from '../../Components/Footer/Footer';
 import MenuButtonPontosColeta from '../../Components/MenuButtonPontosColeta';
 import MapView from 'react-native-maps';
+import { Marker } from 'react-native-maps';
 
 export default function PontosColeta() {
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
+
+    const [mapRegion, setMapRegion] = useState(
+        {
+            latitude: -22.389748,
+            longitude: -43.131616,
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.005,
+        }
+    )
 
     return (
         <>
@@ -39,11 +49,21 @@ export default function PontosColeta() {
                     {/* <Image style={styles.bodyLogo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/dcbab49c629b3d86bc546c9445d3724a65c68071/ReturnTrash/assets/maps.png',
                     }} /> */}
+                    <View style={styles.mapBorder}>
+                        <MapView
+                            region={mapRegion}
+                            style={styles.map}
+                        // initialRegion={{
+                        //     latitude: -22.389748,
+                        //     longitude: -43.131616,
+                        //     latitudeDelta: 0.0922,
+                        //     longitudeDelta: 0.0421,
+                        // }}
 
-                    <MapView></MapView>
-
-
-
+                        >
+                            <Marker coordinate={mapRegion} title='Colégio Bom Jesus Itaipava'></Marker>
+                        </MapView>
+                    </View>
 
 
                 </View>
@@ -57,10 +77,24 @@ export default function PontosColeta() {
 
 const styles = StyleSheet.create({
 
+    mapBorder: {
+        borderColor: '#204722',
+        width: 330,
+        height: 390,
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 5,
+        borderWidth: 45
+    },
+
     map: {
-        width: '50%',
-        height: '50%',
-      },
+        width: 300,
+        height: 360,
+        alignContent: 'center',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
 
     header1: {
         marginTop: 35,

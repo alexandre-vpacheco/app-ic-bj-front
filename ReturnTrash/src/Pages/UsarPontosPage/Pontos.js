@@ -4,13 +4,16 @@ import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../../Components/Footer/Footer';
 import MenuButtonUsarPontos from '../../Components/MenuButtonUsarPontos';
-import { AntDesign } from '@expo/vector-icons';
+import { useContext } from 'react';
+import { PointsContext } from '../../Context/PointsContext';
 
 export default function Pontos() {
 
     const [visible, setVisible] = useState(false);
 
     const navigation = useNavigation();
+
+    const { totalPoints } = useContext(PointsContext);
 
     return (
         <>
@@ -74,7 +77,7 @@ export default function Pontos() {
                         <View style={styles.outros2}>
                             <View style={styles.saldoBox}>
                                 <Text style={styles.saldoText}>Seu saldo: </Text>
-                                <Text style={styles.saldoText}>45 pontos</Text>
+                                <Text style={styles.saldoText}>{totalPoints} pontos</Text>
                             </View>
                             <TouchableOpacity style={styles.historicoBox}><Text style={styles.saldoText}>Histórico</Text></TouchableOpacity>
                         </View>

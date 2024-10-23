@@ -44,7 +44,7 @@ export default function Routes() {
                 options={{ headerShown: false }}
             /> */}
 
-            {/* <Stack.Screen
+            <Stack.Screen
                 name="HomePage"
                 component={HomePage}
                 options={{ headerShown: false }}
@@ -54,15 +54,15 @@ export default function Routes() {
                 name="Descarte"
                 component={Descarte}
                 options={{ headerShown: false }}
-            /> */}
+            />
 
             {/* <Stack.Screen
                 name="ConfirmaCPF"
                 component={ConfirmaCPF}
                 options={{ headerShown: false }}
-            /> */}
+            />  */}
 
-            {/* <Stack.Screen
+            <Stack.Screen
                 name="TipoMaterial"
                 component={TipoMaterial}
                 options={{ headerShown: false }}
@@ -90,13 +90,13 @@ export default function Routes() {
                 name="Contato"
                 component={Contato}
                 options={{ headerShown: false }}
-            /> */}
+            />
 
             {/* <Stack.Screen
                 name="QrCodePage"
                 component={QrCodePage}
                 options={{ headerShown: false }}
-            /> */}
+            />
 
             {/* <Stack.Screen
                 name="CpfPage"
