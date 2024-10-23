@@ -4,6 +4,7 @@ import Loading from '../../Components/Loading';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../../Components/Footer/Footer';
 import MenuButtonPontosColeta from '../../Components/MenuButtonPontosColeta';
+import MapView from 'react-native-maps';
 
 export default function PontosColeta() {
 
@@ -35,9 +36,16 @@ export default function PontosColeta() {
                 </View>
 
                 <View style={styles.body}>
-                    <Image style={styles.bodyLogo} source={{
+                    {/* <Image style={styles.bodyLogo} source={{
                         uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/dcbab49c629b3d86bc546c9445d3724a65c68071/ReturnTrash/assets/maps.png',
-                    }} />
+                    }} /> */}
+
+                    <MapView></MapView>
+
+
+
+
+
                 </View>
                 <View style={styles.footer}>
                     <Footer />
@@ -48,6 +56,11 @@ export default function PontosColeta() {
 }
 
 const styles = StyleSheet.create({
+
+    map: {
+        width: '50%',
+        height: '50%',
+      },
 
     header1: {
         marginTop: 35,
