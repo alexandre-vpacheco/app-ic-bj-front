@@ -70,6 +70,7 @@ export default function TipoMaterial() {
 
     const [tampinhas, setTampinhas] = useState(0);
     const [latinhas, setLatinhas] = useState(0);
+    const [garrafas, setGarrafas] = useState(0);
 
     const { addPoints } = useContext(PointsContext);
 
@@ -79,8 +80,12 @@ export default function TipoMaterial() {
     const aumentarLatinhas = () => setLatinhas(latinhas + 1);
     const diminuirLatinhas = () => setLatinhas(latinhas > 0 ? latinhas - 1 : 0);
 
+    const aumentarGarrafas = () => setGarrafas(garrafas + 1);
+    const diminuirGarrafas = () => setGarrafas(garrafas > 0 ? garrafas - 1 : 0);
+
+
     const handlePronto = () => {
-        const totalItens = tampinhas + latinhas; // Soma tampinhas e latinhas
+        const totalItens = tampinhas + latinhas + garrafas; // Soma tampinhas e latinhas
         addPoints(totalItens); // Adiciona os pontos ao total
         alert(`Você irá ganhar ${totalItens} pontos!`);
         navigation.navigate('TudoPronto');
@@ -125,25 +130,43 @@ export default function TipoMaterial() {
                     </View> */}
 
                     {/* Tampinhas */}
-                    <View >
+                    <View style={styles.options}>
+                    {/* <Image style={styles.logo2} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
+                    }} /> */}
                         <Text style={styles.txt1}>Tampinhas: {tampinhas}</Text>
                         <View style={styles.buttons}>
-                            <Button title="-" onPress={diminuirTampinhas} />
-                            <Button title="+" onPress={aumentarTampinhas} />
+                            <Button color="#204722" title="-" onPress={diminuirTampinhas} />
+                            <Button color="#204722" title="+" onPress={aumentarTampinhas} />
                         </View>
                     </View>
 
                     {/* Latinhas */}
-                    <View >
+                    <View style={styles.options}>
+                    {/* <Image style={styles.logo2} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
+                    }} /> */}
                         <Text style={styles.txt1}>Latinhas: {latinhas}</Text>
                         <View style={styles.buttons}>
-                            <Button title="-" onPress={diminuirLatinhas} />
-                            <Button title="+" onPress={aumentarLatinhas} />
+                            <Button color="#204722" title="-" onPress={diminuirLatinhas} />
+                            <Button  color="#204722" title="+" onPress={aumentarLatinhas} />
+                        </View>
+                    </View>
+
+                    {/* Garrafas Pet*/}
+                    {/* <Image style={styles.logo2} source={{
+                        uri: 'https://raw.githubusercontent.com/alexandre-vpacheco/app-ic-bj-front/Alexandre/ReturnTrash/assets/logort.jpg',
+                    }} /> */}
+                    <View style={styles.options}>
+                        <Text style={styles.txt1}>Garrafas Pet: {garrafas}</Text>
+                        <View style={styles.buttons}>
+                            <Button color="#204722" title="-" onPress={diminuirGarrafas} />
+                            <Button color="#204722" title="+" onPress={aumentarGarrafas} />
                         </View>
                     </View>
 
                     {/* Botão Pronto */}
-                    <Button title="Pronto" onPress={handlePronto} />
+                    <Button color="#204722" style={styles.buttonContainer} title="Pronto" onPress={handlePronto} />
 
                 </View>
                 <View style={styles.footer}>
@@ -156,155 +179,178 @@ export default function TipoMaterial() {
 
 const styles = StyleSheet.create({
 
-    buttonContainer: {
-        // marginTop: 15,
-        width: 200,  // Largura desejada
-        height: 60,  // Altura desejada
-    },
-
-    flatlist: {
-        marginTop: 20,
-        marginBottom: 10,
-        backgroundColor: 'white',
-        width: 350,
-        borderRadius: 10,
-        borderWidth: 5,
-        padding: 10,
-
-    },
-
-    header1: {
-        marginTop: 35,
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-    },
-
-    body: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 40
-    },
-
-    header2: {
-        marginTop: 35
-    },
-
-    title: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginTop: 5
-    },
-
-    txtBarra1: {
-        borderTopWidth: 2,
-        borderTopColor: '#8F7975',
-        marginTop: 15,
-    },
-
-    txtBarra2: {
-        borderBottomWidth: 2,
-        borderBottomColor: '#8F7975',
-        marginTop: 5,
-    },
-
-    logoDescarte: {
-        marginTop: -10,
-        width: 65,
-        height: 65,
-        //alignItems: 'flex-start',
-        //justifyContent: 'center',
-        marginLeft: 35,
-        marginBottom: -15,
-    },
-
-    txt: {
-        //marginTop: 2,
-        fontWeight: 'bold',
-        fontSize: 21,
-        color: 'white',
-        // alignItems: 'center',
-        //justifyContent: 'center',
-        //marginTop: 27,
-        marginLeft: 30,
-        //marginBottom: -15,
-    },
-
-    txt1: {
-        marginTop: 5,
-        //fontWeight: 'bold',
-        fontSize: 16,
-        color: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-        //marginTop: 27,
-        marginLeft: 15,
-        //marginBottom: -15,
-    },
-
-    txt2: {
-        //marginTop: 2,
-        //fontWeight: 'bold',
-        fontSize: 19,
-        color: 'white',
-        // alignItems: 'center',
-        //justifyContent: 'center',
-        //marginTop: 27,
-        marginLeft: 20,
-        marginRight: 10,
-        //marginBottom: -15,
-    },
-
-    txt3: {
-        marginTop: 55,
-        fontWeight: 'bold',
-        fontSize: 19,
-        color: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-        //marginTop: 27,
-        marginLeft: 5,
-        //marginBottom: -15,
-    },
-
-    logo: {
+    logo2: {
         marginTop: 12,
-        width: 210,
+        width: 50,
         height: 50,
         //marginLeft:-15,
         //aspectRatio: 8.0,
     },
 
-    recLogo: {
-        marginTop: -30,
-        width: 150,
-        height: 150,
+    options: {
+        flexDirection: 'row',
+        justifyContent:'space-evenly',
+        alignContent: 'space-between',
+        width: 190,
+        height: 50
     },
+
+    maisMenosButtons: {
+
+},
+
+    buttonContainer: {
+    // marginTop: 15,
+    width: 200,  // Largura desejada
+    height: 100,  // Altura desejada
+},
+
+    flatlist: {
+    marginTop: 20,
+    marginBottom: 10,
+    backgroundColor: 'white',
+    width: 350,
+    borderRadius: 10,
+    borderWidth: 5,
+    padding: 10,
+
+},
+
+    header1: {
+    marginTop: 35,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+},
+
+    body: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+    gap: 20,
+    fontSize: 15
+},
+
+    header2: {
+    marginTop: 35
+},
+
+    title: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 5
+},
+
+    txtBarra1: {
+    borderTopWidth: 2,
+    borderTopColor: '#8F7975',
+    marginTop: 15,
+},
+
+    txtBarra2: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#8F7975',
+    marginTop: 5,
+},
+
+    logoDescarte: {
+    marginTop: -10,
+    width: 65,
+    height: 65,
+    //alignItems: 'flex-start',
+    //justifyContent: 'center',
+    marginLeft: 35,
+    marginBottom: -15,
+},
+
+    txt: {
+    //marginTop: 2,
+    fontWeight: 'bold',
+    fontSize: 21,
+    color: 'white',
+    // alignItems: 'center',
+    //justifyContent: 'center',
+    //marginTop: 27,
+    marginLeft: 30,
+    //marginBottom: -15,
+},
+
+    txt1: {
+    marginTop: 5,
+    //fontWeight: 'bold',
+    fontSize: 19,
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    //marginTop: 27,
+    marginLeft: 15,
+    //marginBottom: -15,
+},
+
+    txt2: {
+    //marginTop: 2,
+    //fontWeight: 'bold',
+    fontSize: 19,
+    color: 'white',
+    // alignItems: 'center',
+    //justifyContent: 'center',
+    //marginTop: 27,
+    marginLeft: 20,
+    marginRight: 10,
+    //marginBottom: -15,
+},
+
+    txt3: {
+    marginTop: 55,
+    fontWeight: 'bold',
+    fontSize: 19,
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    //marginTop: 27,
+    marginLeft: 5,
+    //marginBottom: -15,
+},
+
+    logo: {
+    marginTop: 12,
+    width: 210,
+    height: 50,
+    //marginLeft:-15,
+    //aspectRatio: 8.0,
+},
+
+    recLogo: {
+    marginTop: -30,
+    width: 150,
+    height: 150,
+},
 
     container: {
-        flex: 1,
-        backgroundColor: '#856192',
-        alignItems: 'center',
-        //justifyContent: 'center',
-    },
+    flex: 1,
+    backgroundColor: '#856192',
+    alignItems: 'center',
+    //justifyContent: 'center',
+},
 
     buttons: {
-        marginTop: 25,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        //alignItems: 'space-evenly',
-    },
+        marginLeft: 35,
+    //marginTop: 25,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    //alignItems: 'space-evenly',
+},
 
     preFooter: {
-        flexDirection: 'row',
-    },
+    flexDirection: 'row',
+},
 
     footer: {
-        backgroundColor: '#B7DA00',
-        marginTop: 100,
-        width: 450,
-        height: 120,
-    }
+    backgroundColor: '#B7DA00',
+    marginTop: 100,
+    width: 450,
+    height: 120,
+}
 
 });

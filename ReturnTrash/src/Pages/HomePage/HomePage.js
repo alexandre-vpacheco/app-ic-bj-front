@@ -64,7 +64,7 @@ export default function HomePage() {
                     }} />
                 </View>
                 <View style={styles.body}>
-                    <Text style={styles.txt}>Bem-vindo(a), {user.nameid}! Como você irá ajudar o planeta hoje?</Text>
+                    <Text style={styles.txt}>Bem-vindo(a), Caio! Como você irá ajudar o planeta hoje?</Text>
                     <DescartarButton onpress={descarte} />
                     <UsarPontosButton onpress={pontos} />
                     <FaleConoscoButton onpress={contato} />
